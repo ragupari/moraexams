@@ -1,6 +1,6 @@
 [dev]
 command = "astro dev"
-targetPort = 4321
+targetPort = 4322
 
 [[redirects]]
 from = "/api/*"                   # simplify all calls to serverless functions

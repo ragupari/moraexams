@@ -13,7 +13,7 @@ const { name, state, body, batch } = Astro.props;
 const displayName = t(`feedback_${name}_name`);
 ---
 
-<div class="card">
+<div class="card" style="margin: 30px;">
 	<img src={`/achievers/${name}.jpg`} alt={displayName} />
 	<div class="info">
 		<h3>
@@ -33,7 +33,7 @@ const displayName = t(`feedback_${name}_name`);
 <style>
 	.card {
 		--width: min(29rem, 90vw);
-		--height: 22rem;
+		--height: 25rem;
 
 		@apply flex bg-secondary-900 transition-all flex-col px-3 py-6 opacity-90 rounded-lg cursor-pointer snap-center relative text-white items-center overflow-hidden;
 		min-width: var(--width);

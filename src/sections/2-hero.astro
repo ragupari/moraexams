@@ -1,22 +1,30 @@
 ---
+import Slideshow1 from "../components/slideshow1.astro";
+
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const t = useTranslations(getLangFromUrl(Astro.url));
 ---
 
 <section
-	class="lineUp pt-32 sm:pt-20 pb-4 px-[var(--body-margin-x)] text-white top-0 bottom-0 z-[1] flex flex-col items-left"
+	class="lineUp section_hero pt-32 sm:pt-20 pb-4 px-[var(--body-margin-x)] text-white top-0 bottom-0 z-[2] flex items-left"
 >
 	<!-- <img class="h-24 sm:h-32" src="/logo.png" /> -->
-	<h1 class="text-3xl sm:text-5xl md:text-7xl max-w-[20ch] text-left">
+	<h1
+		class="text-3xl sm:text-5xl md:text-7xl max-w-[20ch] text-left"
+		style="margin-top: 15%;"
+	>
 		<span class="text-center">{t("index__title")}</span><br />
 		<span
 			class="text-xl sm:text-3xl md:text-5xl !leading-snug font-light text-left p-0"
 			>{t("hero__title")}</span
 		>
-		<!-- Welcome To<br /><span class="inline-block w-max">Mora&nbsp;Exams</span> -->
 	</h1>
-	<div class="text-[16px] sm:text-[24px] flex flex-col gap-y-6 mt-8 w-fit">
+
+	<!-- <div
+		class="text-[16px] sm:text-[24px] flex flex-col gap-y-6 mt-8 w-fit"
+		style="padding-bottom: 30px;"
+	>
 		<a href="./results" class="no-underline">
 			<button class="btn">
 				<span>
@@ -33,25 +41,12 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 		>
 			<button class="btn !w-full">{t("hero_index_button")}</button>
 		</a>
-		<!-- <a
-			target="_blank"
-			href="https://drive.google.com/drive/folders/1ZivLO18_dEHd53VGWkstlHR3PCsw1hOR?usp=drive_link"
-			class="text-white no-underline hover:underline w-full inline-block"
-		>
-			<button class="btn !w-full">{t("schemes_button")}</button>
-		</a> -->
-	</div>
-	<!-- <p class="text-xl sm:text-2xl">Please Select Your language</p>
-	<div>
-		<button
-			class="mr-6 mb-28 text-xl bg-purple-800 cursor-pointer px-8 py-3 rounded-2xl hover:bg-purple-950"
-			><a class="no-underline text-blue-100" href="">Tamil</a></button
-		>
-		<button
-			class="text-xl bg-purple-800 cursor-pointer px-8 py-3 rounded-2xl hover:bg-purple-950"
-			><a class="no-underline text-blue-100" href="">English</a></button
-		>
 	</div> -->
+	<!-- <hr style="width: 100vh; " />
+	<div class="picture_heading">
+		<a>Past Exam pictures</a>
+	</div>
+	<center><Slideshow1 /></center> -->
 </section>
 
 <script>
@@ -165,6 +160,22 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 	}
 	.btn > * {
 		@apply inline-block align-middle h-fit;
+	}
+
+	.section_hero {
+		margin: 0;
+		padding: 0 10%;
+		display: flex-box;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.picture_heading {
+		text-decoration: none;
+		margin: 30px;
+		font-size: 3em;
+		text-align: center;
 	}
 </style>
 
