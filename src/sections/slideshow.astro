@@ -1,0 +1,43 @@
+<div id="slideshow">
+	<img src="/assets/backgrounds/jpg5.jpg" alt="Image 1" />
+	<img src="/assets/backgrounds/jpg5.jpg" alt="Image 2" />
+	<img src="/assets/backgrounds/jpg5.jpg" alt="Image 3" />
+</div>
+
+<script>
+	var slideIndex = 0;
+	var slides = document.querySelectorAll("#slideshow img");
+
+	function showSlides() {
+		slideIndex++;
+		if (slideIndex >= slides.length) {
+			slideIndex = 0;
+		}
+
+		for (var i = 0; i < slides.length; i++) {
+			slides[i].classList.remove("active");
+		}
+
+		slides[slideIndex].classList.add("active");
+	}
+
+	setInterval(showSlides, 5000);
+</script>
+
+<style>
+	#slideshow {
+		position: relative;
+	}
+
+	#slideshow img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		transition: opacity 1s ease-in-out;
+	}
+
+	#slideshow img.active {
+		opacity: 1;
+	}
+</style>
