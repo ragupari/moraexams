@@ -1,4 +1,29 @@
-# Mora Exams: Landing Page
+# Mora Exams: Landing Website
+
+## Development Guide
+
+### Prerequisites
+
+Bun is the recommended package manager (instead of npm) and runtime (instead of node). However, **You can use node and npm if you want**.
+
+The reason for recommending bun: it's faster. To install bun: [visit bun.sh](https://bun.sh).
+
+### Commands
+
+If you are using npm, replace `bun` with `npm` in the below commands.
+
+| Command                   | Action                                           |
+| ------------------------- | ------------------------------------------------ |
+| `bun install`             | Installs dependencies                            |
+| `bun run dev`             | Starts local dev server at `localhost:4321`      |
+| `bun run build`           | Build your production site to `./dist/`          |
+| `bun run preview`         | Preview your build locally, before deploying     |
+| `bun run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `bun run astro -- --help` | Get help using the Astro CLI                     |
+
+### Deployment
+
+Whenever a commit is pushed or a PR is merged to the main branch, the website will be automatically published on [moraexams.org](https://moraexams.org) in a few minutes. The site is hosted on Netlify.
 
 <!-- ## 🚀 Project Structure -->
 
@@ -19,19 +44,6 @@
 ```
 
 Any static assets, like images, are placed inside the `public/` directory. -->
-
-<!-- ## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     | -->
 
 ### Todo
 
