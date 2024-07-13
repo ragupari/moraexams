@@ -5,10 +5,10 @@ import Layout from "../../layouts/Layout.astro";
 import NavigationBar from "../../sections/1-navigation-bar.astro";
 import Hero from "../../sections/2-hero.astro";
 import WhatIsMoraExams from "../../sections/3-what-is-mora-exams.astro";
-// import FindYourExaminationCentres from "../../sections/4-find-your-examination-centres.astro";
+import FindYourExaminationCentres from "../../sections/4-find-your-examination-centres.astro";
 import LookingForMoraExamPastpapers from "../../sections/5-looking-for-mora-exam-pastpapers.astro";
 import ElearningVideos from "../../sections/6-elearning-videos.astro";
-// import ExamTimeTable from "../../sections/7-exam-time-table.astro";
+import ExamTimeTable from "../../sections/7-exam-time-table.astro";
 // import PlatinumSponsors from "../../sections/8-platinum-sponsors.astro";
 // import WhatIsAllAboutUs from "../../sections/9-what-is-all-about-us.astro";
 import PathwayOfMoraExams from "../../sections/10-pathway-of-mora-exams-section.astro";
@@ -17,8 +17,6 @@ import OurSponsors from "../../sections/12-our-sponsors.astro";
 import OurCommittee from "../../sections/13-our-committee.astro";
 import FeedbackFromAchievers from "../../sections/14-feedback-from-achievers.astro";
 // import ContactUs from "../../sections/15-contact-us.astro";
-// import Slideshow1 from "../../sections/slideshow2.astro";
-// import Pathway from "../../sections/z_pathway.astro";
 import Footer from "../../sections/16-footer.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import { langStaticRoutes } from "../../i18n/ui";
@@ -34,20 +32,17 @@ export const getStaticPaths = (() => {
 	<div
 		class="first-fold grid grid-cols-1 px-0 min-h-[72vh] sm:min-h-[100vh] grid-rows-[auto_1fr] sm:grid-rows-[auto_auto_1fr] bg-cover"
 	>
-		<div style="margin-top: 20px;">
-			<NavigationBar hideLogo={true} />
-		</div>
+		<NavigationBar hideLogo={true} />
 		<Hero />
 	</div>
-	<!-- <Pathway /> -->
 	<WhatIsMoraExams />
 	<PathwayOfMoraExams />
 	<BasicStatistics />
 	<FeedbackFromAchievers />
 	<OurSponsors />
 	<OurCommittee />
-	<!-- <FindYourExaminationCentres /> -->
-	<!-- <ExamTimeTable /> -->
+	<FindYourExaminationCentres />
+	<ExamTimeTable />
 	<!-- <PlatinumSponsors /> -->
 	<!-- <WhatIsAllAboutUs /> -->
 	<!-- <ContactUs /> -->
@@ -71,7 +66,7 @@ export const getStaticPaths = (() => {
 		@apply scroll-mt-20;
 	}
 	.first-fold {
-		background: url("/assets/backgrounds/bg7.png") center / cover no-repeat
+		background: url("/assets/backgrounds/bg4.jpg") center / cover no-repeat
 			fixed;
 	}
 </style>
