@@ -169,7 +169,6 @@ export const ui = Object.freeze({
 		meta__description:
 			"Mora Exams is the largest, island-wide pioneer exam for A/L students. It proves to be incredibly helpful before entering the final exams, providing access to past papers and model papers.",
 
-		nav_home: "Home",
 		nav__timetable: "Timetable",
 		nav__exam_centres: "Exam Centres",
 		nav__resources: "Resources",
@@ -186,18 +185,18 @@ export const ui = Object.freeze({
 		// 	"Now It is even easier to find the paper you need. We have advanced filtering options. And we divided all the questions for each year based on the sub-sections of each subject. Now you can practice our past papers section-wise.",
 		looking_for_past_papers__button: "View Pastpapers",
 
-		committee__title: "Mora Exams 24 | Committee",
-		committee__president_name: "R. Parishith",
+		committee__title: "Mora Exams 23 | Committee",
+		committee__president_name: "T. Sarujan",
 		committee__president_post: "President",
-		committee__secretary_name: "S. Kajaluxan",
+		committee__secretary_name: "N. Harikrishna",
 		committee__secretary_post: "Secretary",
-		committee__treasurer_name: "N. Luxan",
+		committee__treasurer_name: "K. Mayoorathan",
 		committee__treasurer_post: "Treasurer",
-		committee__vice_president_name: "S. Rahavi",
+		committee__vice_president_name: "S. Thabendra",
 		committee__vice_president_post: "Vice President",
-		committee__president_faculty: "Computer Science and Engineering",
+		committee__president_faculty: "Civil Engineering",
 		committee__secretary_faculty: "Computer Science and Engineering",
-		committee__treasurer_faculty: "Civil Engineering",
+		committee__treasurer_faculty: "Material Science and Engineering",
 		committee__vice_president_faculty: "Computer Science and Engineering",
 		committee__university: "University of Moratuwa",
 
@@ -234,7 +233,7 @@ export const ui = Object.freeze({
 		pathway__card3_para:
 			"Tech stream added in 2016 due to student requests and Provincial Director of Education. Our management now delegated to  tech faculty, University of Jaffna for student welfare.",
 		pathway__card4_para:
-			"In the 15th year of the Mora Exam, we are proud to serve the students. Last year, we expanded our service to 22 districts, conducted the examinations in more than 71 examination centres, and accommodated more than 6,500 candidates.",
+			"In the 14th year of the Mora Exam, we are proud to serve the students. Last year, we expanded our service to 22 districts, conducted the examinations in more than 69 examination centres, and accommodated more than 6,000 candidates.",
 
 		feedback_heading: "Thoughts from the Champions",
 		achivers_ranking_1: "Ex-President",
@@ -275,7 +274,7 @@ export const ui = Object.freeze({
 		statistics__centers: "Centres",
 		statistics__candidates: "Candidates",
 
-		timetable__title: "Timetable 2024",
+		timetable__title: "Timetable 2023",
 		timetable__start: "START",
 		timetable__date25_sub1: "Combined Mathematics-I",
 		timetable__date25_sub2: "Biology-I",
@@ -338,7 +337,6 @@ export const ui = Object.freeze({
 		index__title: "Mora Exams",
 		meta__description:
 			"Mora Exams என்பது க.பொ.த (A/L) மாணவர்களுக்கான மாபெரும், நாடளாவிய பரீட்சையாகும். இறுதித் தேர்வுகளில் நுழைய போகும் மாணவர்களுக்கு இது நம்பமுடியாத அளவிற்கு உதவியாக இருக்கின்றது.",
-		nav_home: "முகப்பு",
 		nav__timetable: "நேர அட்டவணை",
 		nav__exam_centres: "பரீட்சை நிலையங்கள்",
 		nav__resources: "வளங்கள்",
@@ -349,19 +347,19 @@ export const ui = Object.freeze({
 		find_your_examination_centres__description: `எங்களிடம் ${totalExamCentres} பரீட்சை மைய வலையமைப்புகள் கிட்டத்தட்ட முழு தீவையும் உள்ளடக்கி உள்ளன. தேர்வு மையங்களைப் பார்க்க உங்கள் மாவட்டத்தைத் தேர்வு செய்யவும்.`,
 		looking_for_past_papers__title: "கடந்த கால வினாத்தாள்களை தேடுகின்றீர்களா?",
 		timetable__title: "நேர அட்டவணை",
-		committee__title: "Mora Exams - 2024 | செயற்குழு",
-		committee__president_name: "ர. பரிஷித் ",
-		committee__secretary_name: "சி. கஜலக்சன்",
-		committee__treasurer_name: "ந. லக்சன்",
-		committee__vice_president_name: "சி. ராகவி ",
+		committee__title: "Mora Exams - 2023 | செயற்குழு",
+		committee__president_name: "த. சாருஜன்",
+		committee__secretary_name: "ந. ஹரிகிருஷ்ணா",
+		committee__treasurer_name: "கோ. மயூரதன்",
+		committee__vice_president_name: "ச. தபேந்திரா",
 		committee__president_post: "தலைவர்",
 		committee__secretary_post: "செயலாளர்",
 		committee__treasurer_post: "பொருளாளர்",
-		committee__vice_president_post: "உப தலைவர்",
-		committee__president_faculty: "கணனி விஞ்ஞானமும் பொறியியலும்",
-		committee__secretary_faculty: "கணனி விஞ்ஞானமும் பொறியியலும்",
-		committee__treasurer_faculty: "குடிசார் பொறியியல்",
-		committee__vice_president_faculty: "கணனி விஞ்ஞானமும் பொறியியலும்",
+		committee__vice_president_post: "துணைத்தலைவர்",
+		committee__president_faculty: "குடிசார் பொறியியல்",
+		committee__secretary_faculty: "கணினி விஞ்ஞானம் மற்றும் பொறியியல்",
+		committee__treasurer_faculty: "பொருள் விஞ்ஞானம் மற்றும் பொறியியல்",
+		committee__vice_president_faculty: "கணினி விஞ்ஞானம் மற்றும் பொறியியல்",
 		committee__university: "மொறட்டுவைப் பல்கலைக்கழகம்",
 		looking_for_past_papers__description:
 			"இப்போது உங்களுக்குத் தேவையான கடந்தகால வினாத்தாள்களை கண்டுபிடிப்பது இன்னும் எளிதாகிவிட்டது. எங்களிடம் மேம்பட்ட வடிகட்டுதல் தெரிவுகள் உள்ளன. மேலும் ஒவ்வொரு பாடத்தின் அடிப்படையில் ஒவ்வொரு ஆண்டுக்கான அனைத்து கேள்விகளையும் பிரித்துள்ளோம். இப்போது நீங்கள் எங்கள் கடந்தகால வினாத்தாள்களை பிரிவு வாரியாக பயிற்சி செய்யலாம்.",
@@ -396,7 +394,7 @@ export const ui = Object.freeze({
 		pathway__card3_para:
 			"மாணவர்களின் கோரிக்கைகள் மற்றும் மாகாணக் கல்விப் பணிப்பாளர் காரணமாக 2016 இல் தொழில்நுட்ப பிரிவும் சேர்க்கப்பட்டது. எங்கள் நிர்வாகம் இப்போது மாணவர் நலனுக்காக யாழ்ப்பாணப் பல்கலைக்கழகத்தின் தொழில்நுட்ப பீடத்திடம் ஒப்படைக்கப்பட்டுள்ளது.",
 		pathway__card4_para:
-			"	15 ஆவது மொறா பரீட்சையை வெற்றிகரமாக நடாத்துவதை எண்ணி பெருமையடைகின்றோம். கடந்த வருடம் 22 மாவட்டங்களில் 71 பரீட்சை நிலையங்களில் 6500 இற்கு மேற்பட்ட மாணவர்களை உள்ளடக்கி எமது பரீட்சையை நடாத்தி இருந்தோம்.",
+			"	14 ஆவது மொறா பரீட்சையை வெற்றிகரமாக நடாத்துவதை எண்ணி பெருமையடைகின்றோம். கடந்த வருடம் 22 மாவட்டங்களில் 69 பரீட்சை நிலையங்களில் 5000 இற்கு மேற்பட்ட மாணவர்களை உள்ளடக்கி எமது பரீட்சையை நடாத்தி இருந்தோம்.",
 		feedback_iroshan:
 			"இத்தேர்வு பல்வேறு படிநிலைகளை தாண்டி தேசிய அங்கீகாரம் பெற்று காணப்படுகின்றது. சுருக்கமாக சொல்லப்போனால் இது பரீட்சையின் அடுத்த நிலை ஆகும்.",
 		feedback_darukeesan:
