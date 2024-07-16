@@ -11,8 +11,9 @@ export default defineConfig({
 	output: "hybrid",
 	redirects: {
 		"/": `/${defaultLang}/`,
+		"/modelpaper": `https://drive.google.com/drive/folders/1pAzO3OQ7nwBLuJ_gU-4vY12x6eENrwPz`,
 		"/results": `/${defaultLang}/results`,
-		"/practicepapers": "https://drive.google.com/drive/folders/1pAzO3OQ7nwBLuJ_gU-4vY12x6eENrwPz",
+		"/practicepapers": `/${defaultLang}/practicepapers`,
 		"/manage": "https://moraetamils.com/manage",
 	},
 	adapter: netlify({
