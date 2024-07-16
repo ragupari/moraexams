@@ -1,0 +1,36 @@
+{
+  "name": "mora-exams-website",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "prettier --check . ./**/*.astro",
+    "format": "prettier --write . ./**/*.astro"
+  },
+  "dependencies": {
+    "@astrojs/netlify": "3.1.1",
+    "@astrojs/react": "3.0.7",
+    "@astrojs/svelte": "^5.0.1",
+    "@astrojs/tailwind": "5.0.3",
+    "@libsql/client": "^0.4.0-pre.5",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "astro": "4.0.4",
+    "csv-parse": "^5.5.2",
+    "drizzle-orm": "^0.29.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "run": "^1.4.0",
+    "svelte": "^4.2.8",
+    "tailwindcss": "^3.3.5"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.1",
+    "drizzle-kit": "^0.20.6"
+  }
+}

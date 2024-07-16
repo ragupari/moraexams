@@ -1,0 +1,29 @@
+---
+interface Props {
+	text: string;
+	href?: string;
+}
+
+const { text, href } = Astro.props;
+
+if (href == undefined) {
+	console.warn(`<NavLink text={${text}} />: href is not provided`);
+}
+---
+
+<li class="inline-block w-fit bg-transparent">
+	<a
+		class="text-inherit no-underline font-bold opacity-80 transition-opacity hover:opacity-100 bg-transparent"
+		href={href || ""}
+	>
+		{text}</a
+	>
+</li>
+
+<style>
+	@media (max-width: 640px) {
+		li::before {
+			content: "— ";
+		}
+	}
+</style>

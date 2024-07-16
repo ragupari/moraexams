@@ -1,0 +1,184 @@
+---
+import Slideshow1 from "../components/slideshow1.astro";
+
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<section
+	class="lineUp section_hero pt-32 sm:pt-20 pb-4 px-[var(--body-margin-x)] text-white top-0 bottom-0 z-[2] flex items-left"
+>
+	<!-- <img class="h-24 sm:h-32" src="/logo.png" /> -->
+	<h1
+		class="text-3xl sm:text-5xl md:text-7xl max-w-[20ch] text-left"
+		style="margin-top: 15%;"
+	>
+		<span class="text-center">{t("index__title")}</span><br />
+		<span
+			class="text-xl sm:text-3xl md:text-5xl !leading-snug font-light text-left p-0"
+			>{t("hero__title")}</span
+		>
+	</h1>
+
+	<!-- <div
+		class="text-[16px] sm:text-[24px] flex flex-col gap-y-6 mt-8 w-fit"
+		style="padding-bottom: 30px;"
+	>
+		<a href="./results" class="no-underline">
+			<button class="btn">
+				<span>
+					{t("hero_results_button")}
+				</span>
+				<i
+					class="fa-solid fa-arrow-right translate-x-[10px] transition-transform pr-2"
+				></i>
+			</button>
+		</a>
+		<a
+			href="./find-your-index-number"
+			class="text-white no-underline hover:underline w-full inline-block"
+		>
+			<button class="btn !w-full">{t("hero_index_button")}</button>
+		</a>
+	</div> -->
+	<!-- <hr style="width: 100vh; " />
+	<div class="picture_heading">
+		<a>Past Exam pictures</a>
+	</div>
+	<center><Slideshow1 /></center> -->
+</section>
+
+<script>
+	(() => {
+		const logoTitles = document.querySelectorAll(".logo-title");
+		// console.log(logoTitles);
+		if (logoTitles.length == 0) {
+			return;
+		}
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const entry = entries[0];
+
+				for (const item of [logoTitles]) {
+					if (!(item instanceof HTMLAnchorElement)) {
+						continue;
+					}
+
+					if (entry.isIntersecting) {
+						// visible
+						item.style.color = "transparent";
+					} else {
+						item.style.color = "inherit";
+					}
+				}
+			},
+			{
+				rootMargin: "-30px 0px 0px 0px",
+				threshold: 1,
+			},
+		);
+
+		const h1Elements = document.querySelectorAll("h1");
+		if (h1Elements.length != 1) {
+			throw new Error("An HTML page must contain one and only h1 element.");
+		}
+		setTimeout(() => {
+			observer.observe(h1Elements.item(0));
+		}, 3000);
+	})();
+</script>
+
+<style>
+	button:hover i {
+		@apply translate-x-[16px];
+	}
+	.btn {
+		@apply text-white w-fit px-5 py-3 text-[1em];
+		background: linear-gradient(135deg, #852d91, #312a6c);
+		transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+		font-weight: bold;
+		border: 0;
+		outline-color: hsl(243, 31%, 60%);
+		outline-width: 2px;
+		border-radius: 0.5rem;
+		cursor: pointer;
+	}
+	.btn:hover {
+		color: #cfcece;
+		border: none;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		animation: rotate 0.7s ease-in-out both;
+	}
+
+	.btn:hover:before,
+	.btn:hover:after {
+		opacity: 0.15;
+	}
+	.btn:hover:before {
+		transform: translate3d(50%, 0, 0) scale(0.9);
+	}
+	.btn:hover:after {
+		transform: translate(50%, 0) scale(1.1);
+	}
+	@keyframes rotate {
+		0% {
+			transform: rotate(0deg);
+		}
+		25% {
+			transform: rotate(3deg);
+		}
+		50% {
+			transform: rotate(-3deg);
+		}
+		75% {
+			transform: rotate(1deg);
+		}
+		100% {
+			transform: rotate(0deg);
+		}
+	}
+	.lineUp {
+		animation: 3s anim-lineUp ease-out;
+	}
+	@keyframes anim-lineUp {
+		0% {
+			opacity: 0;
+			transform: translateY(80%);
+		}
+		20% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 1;
+			transform: translateY(0%);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0%);
+		}
+	}
+	.btn > * {
+		@apply inline-block align-middle h-fit;
+	}
+
+	.section_hero {
+		margin: 0;
+		padding: 0 10%;
+		display: flex-box;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.picture_heading {
+		text-decoration: none;
+		margin: 30px;
+		font-size: 3em;
+		text-align: center;
+	}
+</style>
+
+<!-- todo: generalize buttons, can use passing arguments or classes to unify the button components -->
+<!-- todo: make the hero page more modular, ability to implement countdowns and removing buttons and replacing with sponsor messages when needed -->
+<!-- todo: fix hero display for mobile view (make it more efficient) -->

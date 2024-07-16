@@ -1,0 +1,96 @@
+---
+import PathwayCard from "../components/PathwayCard.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<section class="pt-4 pathway-section">
+	<h2 class="mt-10 mb-8 text-center pathway-title">{t("pathway__title")}</h2>
+
+	<div class="pathway-grid">
+		<PathwayCard
+			title={t("pathway__card1_title")}
+			year="2007"
+			description={t("pathway__card1_para")}
+		/>
+		<PathwayCard
+			title={t("pathway__card2_title")}
+			year="2010"
+			description={t("pathway__card2_para")}
+		/>
+		<PathwayCard
+			title={t("pathway__card3_title")}
+			year="2016"
+			description={t("pathway__card3_para")}
+		/>
+		<PathwayCard
+			title={t("pathway__card4_title")}
+			year="2024"
+			description={t("pathway__card4_para")}
+		/>
+	</div>
+	<hr style="max-width: 1200px; margin-top: 20px;" />
+</section>
+
+<style>
+	.pathway-section {
+		background: url("/assets/backgrounds/bg6.png") center / cover no-repeat
+			fixed;
+		color: #f0f0f0;
+		padding: 2rem;
+	}
+
+	.pathway-title {
+		font-size: 2.5rem;
+		font-weight: bold;
+		color: #ffffff;
+		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+		margin-bottom: 2rem;
+	}
+
+	.pathway-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		padding: 1rem;
+	}
+
+	.pathway-card {
+		background: rgba(255, 255, 255, 0.9);
+		border-radius: 1rem;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		overflow: hidden;
+		transition:
+			transform 0.3s ease-in-out,
+			box-shadow 0.3s ease-in-out;
+	}
+
+	.pathway-card:hover {
+		transform: scale(1.05);
+		box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+	}
+
+	.pathway-card-title {
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: #333;
+		margin: 1rem 0;
+		text-align: center;
+	}
+
+	.pathway-card-year {
+		font-size: 1rem;
+		font-weight: bold;
+		color: #666;
+		text-align: center;
+		margin-bottom: 0.5rem;
+	}
+
+	.pathway-card-description {
+		font-size: 1rem;
+		color: #555;
+		padding: 0 1rem 1rem;
+		text-align: center;
+	}
+</style>

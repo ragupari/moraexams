@@ -1,0 +1,139 @@
+---
+interface Sponsor {
+	name: string;
+	link: string;
+	type:
+		| "Platinum"
+		| "Co-Sponsor"
+		| "Email Partner"
+		| "Printing Partner"
+		| "Media Partner";
+}
+
+const sponsors: Sponsor[] = [
+	{
+		name: "Northway Family Mart",
+		link: "https://web.facebook.com/northwayfamilymart?_rdc=1&_rdr",
+		type: "Platinum",
+	},
+	// { name: "Achievers", link: "https://achieverslive.com/", type: "Co-Sponsor" },
+	{
+		name: "Pirakanth",
+		link: "https://www.facebook.com/pirakanth.photocopy.3/",
+		type: "Co-Sponsor",
+	},
+	{ name: "Uthayan", link: "https://newuthayan.com/", type: "Media Partner" },
+	{
+		name: "Evergreen",
+		link: "https://www.facebook.com/Prathap239/",
+		type: "Printing Partner",
+	},
+	{ name: "Resend", link: "https://resend.com", type: "Email Partner" },
+];
+
+function getLogoUrl(name: string) {
+	let o = "/sponsors/";
+
+	for (let char of name) {
+		if (char == " ") {
+			o = o.concat("-");
+		} else {
+			o = o.concat(char.toLowerCase());
+		}
+	}
+
+	o = o.concat(".png");
+	return o;
+}
+
+function getRowCount(sponsorType: Sponsor["type"]) {
+	if ("Platinum") return 1;
+	if ("Co-Sponsor") return 2;
+	if ("Email Partner") return 3;
+	if ("Printing Partner") return 3;
+	if ("Media Partner") return 3;
+}
+---
+
+<section>
+	<h2 class="mb-3">OUR LAST YEAR SPONSORS</h2>
+	<ul class="sponsors-grid">
+		{
+			sponsors.map((sponsor) => {
+				return (
+					<li class={sponsor.type.replaceAll(" ", "-").toLowerCase()}>
+						<a href={sponsor.link} target="_blank">
+							<img src={getLogoUrl(sponsor.name)} alt={sponsor.name} />
+							<span>{sponsor.type}</span>
+						</a>
+					</li>
+				);
+			})
+		}
+	</ul>
+</section>
+
+<style>
+	section {
+		display: grid;
+		place-items: center;
+		background: rgba(233, 138, 233, 0.495);
+		padding: 32px 0;
+		text-align: center;
+	}
+	.sponsors-grid {
+		@apply gap-y-2 grid-cols-6 px-0;
+		width: 90%;
+		height: auto;
+		display: grid;
+		place-items: center;
+	}
+	li {
+		--scale: 0.8;
+		align-items: center;
+		display: block;
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+		transform: scale(var(--scale));
+		transform-origin: center;
+		transition: transform 0.2s ease-in-out;
+	}
+	li img {
+		@apply mb-4;
+		transition: filter 0.2s ease-in-out;
+		filter: grayscale(100%);
+	}
+	li:hover {
+		transform: scale(calc(var(--scale) + 0.2));
+	}
+	li:hover img {
+		filter: grayscale(0);
+	}
+	img {
+		width: 100%;
+		height: auto;
+	}
+	li.platinum {
+		grid-row: 1;
+		grid-column: span 6;
+		max-width: 1000px;
+	}
+	li.co-sponsor {
+		grid-column: span 3;
+		width: 90%;
+		grid-row: 2;
+	}
+	li.media-partner,
+	li.printing-partner,
+	li.email-partner {
+		grid-column: span 2;
+		width: 80%;
+		grid-row: 3;
+	}
+	a {
+		@apply no-underline text-primary-600 text-lg;
+	}
+</style>
+
+<!-- todo: needs restucturing and new layout to display platinum, silver and bronze sponsors accordingly -->

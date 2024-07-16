@@ -1,0 +1,36 @@
+---
+interface Props {
+	title: string;
+	value: string;
+	class?: string;
+}
+
+const { class: className, title, value } = Astro.props;
+---
+
+<div class={`container ${className}`}>
+	<h6>{title}</h6>
+	<div class="value">{value}</div>
+</div>
+
+<style>
+	.container {
+	}
+	h6 {
+		@apply my-0;
+		color: #303030;
+		font-size: 1.125rem;
+		font-style: normal;
+		font-weight: 700;
+	}
+	.value {
+		@apply rounded-md;
+		border: 1px solid #686868;
+		padding: 0.3rem 0.8rem;
+		color: #404040;
+		font-family: "Roboto Mono", monospace;
+		font-size: 1rem;
+		font-style: normal;
+		font-weight: 700;
+	}
+</style>

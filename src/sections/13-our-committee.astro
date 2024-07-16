@@ -1,0 +1,22 @@
+---
+import CommitteeMemberCard from "../components/CommitteeMemberCard.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section>
+	<h2 class="text-center">
+		{t("committee__title")}
+	</h2>
+
+	<div
+		class="px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mt-5 gap-10 shadow-black w-full h-auto rounded-full p-4"
+	>
+		<CommitteeMemberCard post="president" lang={lang} />
+		<CommitteeMemberCard post="secretary" lang={lang} />
+		<CommitteeMemberCard post="treasurer" lang={lang} />
+		<CommitteeMemberCard post="vice_president" lang={lang} />
+	</div>
+</section>

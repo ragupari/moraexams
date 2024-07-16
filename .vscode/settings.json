@@ -1,0 +1,14 @@
+{
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.detectIndentation": true,
+	"editor.formatOnSave": true,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 2,
+	"files.insertFinalNewline": true,
+	"prettier.documentSelectors": [".astro"],
+	"prettier.proseWrap": "always",
+	"prettier.useTabs": true,
+	"[astro]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+}

@@ -1,0 +1,116 @@
+---
+import Icons from "../components/Icons.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<footer class="w-full pt-4" style="background-color: rgb(255, 253, 253);">
+	<div class="foot md:grid md:grid-cols-[2fr,1fr] gap-20">
+		<div class="text-justify">
+			<h2 class="font-extrabold text-justify text-[#3c005a]">
+				{t("footer_title_1")}
+			</h2>
+			<p class="pb-1 relative text-[#000000]">
+				{t("footer_title_1_description_p1")}
+
+				<!-- Faculty of Engineering,University of Moratuwa. -->
+			</p>
+			<p>
+				{t("footer_title_1_description_p2")}
+			</p>
+		</div>
+		<!-- <div class="md:text-center sm:text-left">
+			<h3 class="text-[#3c005a] relative min-w-max md:min-w-fit">
+				{t("footer_title_4")}
+			</h3> -->
+		<!-- <ul class="list-none">
+				<li>
+					<a class="text-[#800080] no-underline inline-block" href="#"
+						>{t("footer_title_4_s1")}</a
+					>
+				</li>
+				<li>
+					<a class="text-[#800080] no-underline inline-block" href="#"
+						>{t("footer_title_4_s2")}</a
+					>
+				</li>
+				<li>
+					<a class="mb-0.5 text-[#800080] no-underline inline-block" href="#"
+						>{t("footer_title_4_s3")}</a
+					>
+				</li>
+				<li>
+					<a class="mb-0.5 text-[#800080] no-underline inline-block" href="#"
+						>{t("footer_title_4_s4")}</a
+					>
+				</li>
+				<li>
+					<a class="mb-0.5 text-[#800080] no-underline inline-block" href="#"
+						>{t("footer_title_4_s5")}</a
+					>
+				</li>
+			</ul>
+		</div> -->
+		<div class="relative">
+			<p
+				class="relative pb-1 pl-1 text-lg text-justify text-[#3c005a] font-semibold"
+			>
+				{t("footer_title_2")}
+			</p>
+			<ul class="list-none">
+				<li>
+					<span><i class="fa-solid fa-phone"></i></span>
+					<a
+						class="mb-0.5 pl-5 text-[#800080] no-underline inline-block"
+						href="Tel:+94 70 461 6400">+94 70 461 6400</a
+					>
+				</li>
+				<li>
+					<span><i class="fa-solid fa-envelope"></i></span>
+					<a
+						class="mb-0.5 pl-5 text-[#800080] no-underline inline-block"
+						href="Mailto:examsmora@gmail.com">examsmora@gmail.com</a
+					>
+				</li>
+			</ul>
+			<div class="grid">
+				<p class="relative text-justify text-[#3c005a] font-semibold m-0">
+					{t("footer_title_3")}
+				</p>
+				<Icons />
+			</div>
+		</div>
+	</div>
+
+	<!--<div>
+			<h3 class="text-[#3c005a] relative">Subscribe Our Newsletter</h3>
+			<p class="para">Enter your email address to get our updates faster.</p>
+			<form action="#">
+				<input id="gf" style="color: #000;" type="email" name="email" /><input
+					type="submit"
+					value="Subscribe"
+				/>
+			</form>
+		</div> -->
+</footer>
+<div class="pt-1 text-center border-t-2">
+	<hr />
+	<p>
+		<!-- Rights reserved to <span class="font-semibold">Mora Exams</span>. -->
+		<!-- <br /> -->
+		Made with 💟 by <a
+			class="no-underline font-semibold text-primary-800"
+			href="https://github.com/moraexams">Mora Exams</a
+		>
+	</p>
+</div>
+
+<style>
+	ul {
+		@apply p-0;
+	}
+	ul li {
+		@apply mb-2;
+	}
+</style>

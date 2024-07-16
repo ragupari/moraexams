@@ -1,0 +1,204 @@
+---
+import Feedback from "../components/Feedback.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<section class="feedback-section bg-ultra-violet-200 py-7 px-4">
+	<h2 class="feedback-heading text-center text-3xl mb-6">
+		{t("feedback_heading")}
+	</h2>
+	<div class="carousel">
+		<div class="carousel-track-container">
+			<div class="carousel-track">
+				<Feedback
+					name="darukeesan"
+					state={t("achivers_ranking_2")}
+					batch="2014 A/L (MATHS)"
+					body={t("feedback_darukeesan")}
+				/>
+				<Feedback
+					name="abarna"
+					state={t("achivers_ranking_3")}
+					batch="2019 A/L (BIO-OLD)"
+					body={t("feedback_abarna")}
+				/>
+				<Feedback
+					name="sundarbavan"
+					state={t("achivers_ranking_6")}
+					batch="2020 A/L(MATHS-NEW)"
+					body={t("feedback_sundarbavan")}
+				/>
+				<Feedback
+					name="snekan"
+					state={t("achivers_ranking_8")}
+					batch="2022 A/L (MATHS)"
+					body={t("feedback_snekan")}
+				/>
+				<!-- Cloning the slides for seamless looping -->
+				<Feedback
+					name="darukeesan"
+					state={t("achivers_ranking_2")}
+					batch="2014 A/L (MATHS)"
+					body={t("feedback_darukeesan")}
+				/>
+				<Feedback
+					name="abarna"
+					state={t("achivers_ranking_3")}
+					batch="2019 A/L (BIO-OLD)"
+					body={t("feedback_abarna")}
+				/>
+				<Feedback
+					name="sundarbavan"
+					state={t("achivers_ranking_6")}
+					batch="2020 A/L(MATHS-NEW)"
+					body={t("feedback_sundarbavan")}
+				/>
+				<Feedback
+					name="snekan"
+					state={t("achivers_ranking_8")}
+					batch="2022 A/L (MATHS)"
+					body={t("feedback_snekan")}
+				/>
+			</div>
+		</div>
+		<button class="carousel-button carousel-button-left" id="prevButton"
+			>&#10094;</button
+		>
+		<button class="carousel-button carousel-button-right" id="nextButton"
+			>&#10095;</button
+		>
+	</div>
+</section>
+
+<style>
+	.feedback-section {
+		background-color: #6a1b9a;
+		color: #fff;
+	}
+
+	.feedback-heading {
+		color: #fff;
+		text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+	}
+
+	.carousel {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		margin: 0 auto;
+		border-radius: 2rem;
+	}
+
+	.carousel-track-container {
+		overflow: hidden;
+		position: relative;
+	}
+
+	.carousel-track {
+		display: flex;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.carousel-track > div {
+		min-width: 300px;
+		flex: 1 0 100%;
+	}
+
+	.carousel-button {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background-color: rgba(0, 0, 0, 0.5);
+		color: white;
+		border: none;
+		padding: 1rem;
+		cursor: pointer;
+		z-index: 10;
+	}
+
+	.carousel-button-left {
+		left: 10px;
+	}
+
+	.carousel-button-right {
+		right: 10px;
+	}
+
+	.carousel-button:focus {
+		outline: none;
+	}
+</style>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const track = document.querySelector(".carousel-track") as HTMLElement;
+		const slides = Array.from(track.children) as HTMLElement[];
+		const slideWidth = slides[0].getBoundingClientRect().width;
+		const prevButton = document.getElementById(
+			"prevButton",
+		) as HTMLButtonElement;
+		const nextButton = document.getElementById(
+			"nextButton",
+		) as HTMLButtonElement;
+
+		let currentIndex = 0;
+		const intervalTime = 3000; // 3 seconds
+
+		function moveToSlide(index: number) {
+			track.style.transition = "transform 0.3s ease-in-out";
+			track.style.transform = "translateX(-" + index * slideWidth + "px)";
+		}
+
+		function autoMoveToNextSlide() {
+			currentIndex++;
+			moveToSlide(currentIndex);
+
+			if (currentIndex === slides.length / 2) {
+				setTimeout(() => {
+					track.style.transition = "none";
+					currentIndex = 0;
+					moveToSlide(currentIndex);
+				}, 300);
+			}
+		}
+
+		function moveToPrevSlide() {
+			if (currentIndex === 0) {
+				track.style.transition = "none";
+				currentIndex = slides.length / 2 - 1;
+				moveToSlide(currentIndex);
+			}
+			setTimeout(() => {
+				track.style.transition = "transform 0.3s ease-in-out";
+				currentIndex--;
+				moveToSlide(currentIndex);
+			}, 0);
+		}
+
+		function moveToNextSlide() {
+			if (currentIndex === slides.length / 2) {
+				track.style.transition = "none";
+				currentIndex = 0;
+				moveToSlide(currentIndex);
+			}
+			setTimeout(() => {
+				track.style.transition = "transform 0.3s ease-in-out";
+				currentIndex++;
+				moveToSlide(currentIndex);
+			}, 0);
+		}
+
+		prevButton.addEventListener("click", moveToPrevSlide);
+		nextButton.addEventListener("click", moveToNextSlide);
+
+		let autoSlideInterval = setInterval(autoMoveToNextSlide, intervalTime);
+
+		window.addEventListener("resize", () => {
+			moveToSlide(currentIndex);
+		});
+
+		moveToSlide(currentIndex); // Initialize position
+	});
+</script>

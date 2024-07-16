@@ -1,0 +1,47 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+interface Props {
+	subject: "combined-maths" | "physics" | "chemistry";
+	href: string;
+}
+
+const { href, subject } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const x = subject.replace("-", "_") as
+	| "combined_maths"
+	| "physics"
+	| "chemistry";
+
+const subjectDisplayName = t(`elearning_videos_${x}`);
+---
+
+<a
+	href={href}
+	target="_blank"
+	class="block no-underline hover:underline relative w-full aspect-square bg-contain rounded-lg text-white"
+	style=`background-image: linear-gradient(180deg, transparent 0%, transparent 66%, #000000a0 90%), url("/subject/${subject}.jpeg")`
+>
+	<div
+		class="absolute bottom-2 rounded-lg flex justify-between items-center w-full px-4 text-xl"
+	>
+		<span>
+			{subjectDisplayName}
+		</span>
+		<i
+			class="fa-solid fa-arrow-right text-3xl translate-x-[-10px] transition-transform"
+		></i>
+	</div>
+</a>
+
+<style>
+	a:hover {
+		background-blend-mode: multiply;
+	}
+
+	a:hover i {
+		@apply translate-x-[0px];
+	}
+</style>

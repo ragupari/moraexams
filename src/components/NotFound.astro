@@ -1,0 +1,39 @@
+---
+interface Props {
+	variant: "results" | "index-no";
+}
+
+const { variant } = Astro.props;
+const backHref =
+	variant == "index-no" ? "./find-your-index-number" : "./results";
+---
+
+<div class="h-fit grid grid-cols-[1fr_auto]">
+	<h1 class="text-7xl text-red-500 mt-0 col-span-2">Not found</h1>
+
+	<p class="max-w-prose text-black col-span-2 mt-0">
+		Note: Unacceptable behavior during exams and/or failing to submit essential
+		details correctly may prohibit grades for the condidate. Contact for further
+		issues.
+	</p>
+	<a href={backHref}>
+		<button
+			class="w-full sm:w-fit py-2 px-4 rounded-full text-primary-800 text-xl bg-white hover:bg-delft-blue-50/50 border border-sm border-black/25 focus:outline-none focus:shadow focus:border-none"
+		>
+			<>
+				<i class="fa-solid fa-arrow-left"></i>
+				<span class="ml-3">Back</span>
+			</>
+		</button>
+	</a>
+	{
+		variant == "results" ? (
+			<a
+				href="./find-your-index-number"
+				class="justify-self-center h-fit inline"
+			>
+				Forgot index number?
+			</a>
+		) : null
+	}
+</div>

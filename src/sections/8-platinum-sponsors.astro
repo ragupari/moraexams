@@ -1,0 +1,106 @@
+<section>
+	<h2>PLATINUM SPONSORS</h2>
+	<!-- <div class="row">
+			<div class="col-md-12 text-center">
+			</div>
+		</div> -->
+	<a href="https://sltc.ac.lk/" target="_blank">
+		<img src="/Sponsors/sltc-full.png" alt="sltc-full" />
+	</a>
+	<a
+		href="https://web.facebook.com/northwayfamilymart?_rdc=1&_rdr"
+		target="_blank"
+	>
+		<img src="/Sponsors/northway-family-mart.png" alt="northway-family-mart" />
+	</a>
+</section>
+<style>
+	h2 {
+		@apply text-white text-6xl;
+	}
+	section {
+		@apply flex flex-col items-center;
+		padding-bottom: 40px;
+		--hue: 290;
+		--sz: 10px; /*** size ***/
+		--c0: hsl(calc(var(--hue) / 2), 59%, 14%);
+		--c1: hsl(var(--hue), 100%, 72%);
+		--c2: hsl(var(--hue), 68%, 54%);
+		--c3: hsl(var(--hue), 94%, 31%);
+		--ts: 50% / calc(var(--sz) * 12.8) calc(var(--sz) * 22);
+		background:
+		/*bottom*/
+			conic-gradient(
+					from 120deg at 50% 86.5%,
+					var(--c1) 0 120deg,
+					hsl(var(--hue), 50%, 50%, 50%) 0 360deg
+				)
+				var(--ts),
+			conic-gradient(
+					from 120deg at 50% 86.5%,
+					var(--c1) 0 120deg,
+					#fff0 0 360deg
+				)
+				var(--ts),
+			/*bottom dark*/
+				conic-gradient(
+					from 120deg at 50% 74%,
+					var(--c0) 0 120deg,
+					#fff0 0 360deg
+				)
+				var(--ts),
+			/*right*/
+				conic-gradient(
+					from 60deg at 60% 50%,
+					var(--c1) 0 60deg,
+					var(--c2) 0 120deg,
+					#fff0 0 360deg
+				)
+				var(--ts),
+			/*left*/
+				conic-gradient(
+					from 180deg at 40% 50%,
+					var(--c3) 0 60deg,
+					var(--c1) 0 120deg,
+					#fff0 0 360deg
+				)
+				var(--ts),
+			/*top dark*/
+				conic-gradient(from 0deg at 90% 35%, var(--c0) 0 90deg, #fff0 0 360deg)
+				var(--ts),
+			conic-gradient(from -90deg at 10% 35%, var(--c0) 0 90deg, #fff0 0 360deg)
+				var(--ts),
+			conic-gradient(from 0deg at 90% 35%, var(--c0) 0 90deg, #fff0 0 360deg)
+				var(--ts),
+			conic-gradient(from -90deg at 10% 35%, var(--c0) 0 90deg, #fff0 0 360deg)
+				var(--ts),
+			/*top*/
+				conic-gradient(
+					from -60deg at 50% 13.5%,
+					var(--c1) 0 120deg,
+					#fff0 0 360deg
+				)
+				var(--ts),
+			conic-gradient(
+					from -60deg at 50% 13.5%,
+					var(--c1) 0 120deg,
+					#fff0 0 360deg
+				)
+				var(--ts),
+			conic-gradient(
+					from -60deg at 50% 41%,
+					var(--c2) 0 60deg,
+					var(--c3) 0 120deg,
+					#fff0 0 360deg
+				)
+				var(--ts),
+			var(--c0);
+	}
+	a {
+		width: 80%;
+		background-color: white;
+	}
+	a img {
+		width: 100%;
+	}
+</style>

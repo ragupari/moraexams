@@ -1,0 +1,149 @@
+---
+interface Props {
+	year: string;
+	title: string;
+	description: string;
+}
+const { year, title, description } = Astro.props;
+---
+
+<div
+	class="col cursor-pointer min-w-fit"
+	ontouchstart="this.classList.toggle('hover');"
+>
+	<div class="container">
+		<div class="front bg-secondary-950">
+			<div class="inner">
+				<h4 class="relative text-3xl mb-8">{title}</h4>
+				<span class="opacity-70 font-light">{year}</span>
+			</div>
+		</div>
+		<div class="back">
+			<div class="inner">
+				<p class="leading-6 text-sm mx-10 sm:text-[1.2rem]">
+					{description}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	h4::after {
+		@apply h-[5px] absolute inset-x-0 my-0 mx-auto content-[""] w-16 bg-secondary-200 rounded-full;
+		bottom: -0.75rem;
+	}
+	.container {
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		-webkit-perspective: 2000px;
+		perspective: 2000px;
+	}
+
+	.front,
+	.back {
+		@apply rounded-lg;
+		background-size: cover;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+		background-position: auto;
+		-webkit-transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+		transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+		-o-transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+		transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+		transition:
+			transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1),
+			-webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		text-align: center;
+		min-height: 280px;
+		height: auto;
+		border-radius: 10px;
+		font-size: 2rem;
+	}
+
+	.back {
+		/* @apply bg-gradient-to-r from-ultra-violet-900 to-mora-purple-950; */
+		background: linear-gradient(
+			45deg,
+			theme("colors.primary.700") 0%,
+			theme("colors.primary.900") 100%
+		);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+
+	.front:after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		content: "";
+		display: block;
+		opacity: 0.6;
+		/* background-color: #000; */
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		border-radius: 10px;
+	}
+	.container:hover .front,
+	.container:hover .back {
+		-webkit-transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+		transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+		-o-transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+		transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+		transition:
+			transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1),
+			-webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+	}
+
+	.inner {
+		-webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+		transform: translateY(-50%) translateZ(20px) scale(0.94);
+		top: 50%;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		outline: 1px solid transparent;
+		-webkit-perspective: inherit;
+		perspective: inherit;
+		z-index: 2;
+	}
+
+	.container .back {
+		-webkit-transform: rotateY(180deg);
+		transform: rotateY(180deg);
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+	}
+
+	.container .front {
+		-webkit-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+	}
+
+	.container:hover .back {
+		-webkit-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+	}
+
+	.container:hover .front {
+		-webkit-transform: rotateY(-180deg);
+		transform: rotateY(-180deg);
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+	}
+</style>
+
+<!-- todo: simplify styling, repetition found -->
+<!-- todo: fix layout text overflow during l to m viewport -->

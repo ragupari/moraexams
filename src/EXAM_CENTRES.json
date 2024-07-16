@@ -1,0 +1,576 @@
+{
+	"districts": [
+		{
+			"name_en": "Ampara",
+			"name_ta": "அம்பாறை",
+			"coordinators": [
+				{
+					"name_en": "Rafshan",
+					"contact_number": "0759047407"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "Vipulananda Central College, Karaitivu",
+					"name_ta": "விபுலானந்தா மத்திய கல்லூரி, காரைதீவு"
+				},
+				{
+					"name_en": "Zahira College, Kalmunai",
+					"name_ta": "சாஹிரா கல்லூரி, கல்முனை"
+				},
+				{
+					"name_en": "KM/TK/Thambiluvil Mathya Maha Vidyalayam",
+					"name_ta": "தம்பிலுவில் மத்திய மகா வித்யாலயம்"
+				},
+				{
+					"name_en": "Carmel Fatima College, Sammanthurai",
+					"name_ta": "கார்மல் பாத்திமா கல்லூரி, சம்மாந்துறை"
+				},
+				{
+					"name_en": "Muslim Madya Maha Vidiyalayam, Sammanthurai",
+					"name_ta": "முஸ்லிம் மத்திய மகா வித்தியாலயம், சம்மாந்துரை"
+				},
+				{
+					"name_en": "Al-Ashraq M.M.V, Nintavur",
+					"name_ta": "அல்-அஷ்ராக் ம.ம.வி, நின்டாவூர்"
+				},
+				{
+					"name_en": "As-Siraj Maha Vidyalayam",
+					"name_ta": "அஸ்-ஸிராஜ் மகா வித்தியாலயம்"
+				},
+				{
+					"name_en": "Al-Irfan Ladies College, Pottuvil",
+					"name_ta": "அல்-இர்ஃபான் மகளிர் கல்லூரி, பொட்டுவில்"
+				},
+				{
+					"name_en": "Al-Ashraf Central College, Irakkama",
+					"name_ta": "எல்-அஷ்ரப் மத்திய கல்லூரி, இராக்கம"
+				},
+				{
+					"name_en": "Al-Hamra Maha Vidyalaya, Oluvil",
+					"name_ta": "அல்-ஹம்ரா மகா வித்தியாலயம், ஒலுவில்"
+				},
+				{
+					"name_en": "Sri Rama Krishna College",
+					"name_ta": "ஸ்ரீ ராமா கிருஷ்ணா கல்லூரி"
+				},
+				{
+					"name_en": "AK/Addalaichenai M.M.V",
+					"name_ta": "அத்தாலைச்சேனை எம்.எம்.வி"
+				}
+			]
+		},
+		{
+			"name_en": "Anurathapura",
+			"name_ta": "அனுராதபுரம்",
+			"centers": [
+				{
+					"coordinator": {
+						"name_en": "Miskeen Sir",
+						"contact_number": "0714478366"
+					},
+					"name_en": "A/An-Noor Mahavidyalaya, Ikkirigollawa",
+					"name_ta": "அன்-நூர் மகாவித்தியாலயம், இக்கிரிகொல்லாவ"
+				},
+				{
+					"coordinator": {
+						"name_en": "A.H.Mohamed Raleef",
+						"contact_number": "0767748800"
+					},
+					"name_en": "Kahatagasdhigiliya Muslim M.V.",
+					"name_ta": "கஹடகஸ்திகிலிய முஸ்லிம் ம.வி."
+				}
+			]
+		},
+		{
+			"name_en": "Badulla",
+			"name_ta": "பதுளை",
+			"coordinators": [
+				{
+					"name_en": "Vignesh Sir",
+					"contact_number": "0772467190"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "B/Bandarawela Tamil Central college",
+					"name_ta": "பண்டாரவளை தமிழ் மத்திய கல்லூரி"
+				},
+				{
+					"name_en": "Saraswathi Central College",
+					"name_ta": "சரஸ்வதி மத்திய கல்லூரி"
+				},
+				{
+					"name_en": "B/Welimada muslim Maha Vidyalaya",
+					"name_ta": "வேலிமட முஸ்லிம் மகா வித்யாலயா"
+				}
+			]
+		},
+		{
+			"name_en": "Batticaloa",
+			"name_ta": "மட்டக்களப்பு",
+			"coordinators": [
+				{
+					"name_en": "Sajeev",
+					"contact_number": "0766945925"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "BT/BC/Alighar Central College",
+					"name_ta": "அலிகார் மத்திய கல்லூரி"
+				},
+				{
+					"name_en": "BT/BT/Mahajana College",
+					"name_ta": "மகாஜனா கல்லூரி"
+				},
+				{
+					"name_en": "BT/BC/Meera Balika National School",
+					"name_ta": "மீரா பாலிகா தேசிய பாடசாலை"
+				},
+				{
+					"name_en": "BT/Shivananda National School",
+					"name_ta": "சிவானந்தா தேசிய பாடசாலை"
+				},
+				{
+					"name_en": "BT/Paddirupu Maha Vidyalaya",
+					"name_ta": "பத்திருப்பு மகா வித்தியாலயம்"
+				},
+				{
+					"name_en": "BT/KK/Chenkalady Central College",
+					"name_ta": "செங்கலடி மத்திய கல்லூரி"
+				},
+				{
+					"name_en": "BT/Valaichenai Hindu College",
+					"name_ta": "வாழைச்சேனை இந்து கல்லூரி"
+				}
+			]
+		},
+		{
+			"name_en": "Colombo",
+			"name_ta": "கொழும்பு",
+			"coordinators": [
+				{
+					"name_en": "Thulajah",
+					"contact_number": "0714867755"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "Hindu Ladies College, Colombo-06",
+					"name_ta": "இந்து மகளிர் கல்லூரி, கொழும்பு-06"
+				},
+				{
+					"name_en": "Vivekananda National College, Kotahena",
+					"name_ta": "விவேகானந்தா தேசிய கல்லூரி, கோடஹேன"
+				}
+			]
+		},
+		{
+			"name_en": "Gampaha",
+			"name_ta": "கம்பஹா",
+			"centers": [
+				{
+					"coordinator": {
+						"name_en": "Abdullah sir",
+						"contact_number": "0767034384"
+					},
+					"name_en": "Al Azhar Central College, Thihariya (IT Only)",
+					"name_ta": "அல் அஸார் மத்திய கல்லூரி, திஹாரியா (IT மட்டும்)"
+				},
+				{
+					"coordinator": {
+						"name_en": "M. M. Sabir",
+						"contact_number": "0773173005, 0718043190"
+					},
+					"name_en": "Al-Muhsin Science College, Malwana",
+					"name_ta": "அல்-முஹ்ஸின் அறிவியல் கல்லூரி, மல்வானா"
+				}
+			]
+		},
+		{
+			"name_en": "Galle",
+			"name_ta": "காலி",
+			"coordinators": [
+				{
+					"name_en": "Ayyash",
+					"contact_number": "0760727374"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "G/Malharus Sulhiya Central College",
+					"name_ta": "மல்ஹாருஸ் சுல்ஹியா மத்திய கல்லூரி"
+				}
+			]
+		},
+		{
+			"name_en": "Hambantota",
+			"name_ta": "ஹம்பாந்தோட்டை",
+			"coordinators": [
+				{
+					"name_en": "Jawsar",
+					"contact_number": "0772273884"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "Zahira National School, Hambantota",
+					"name_ta": "சாஹிரா தேசிய பாடசாலை, அம்பாந்தோட்டை"
+				}
+			]
+		},
+		{
+			"name_en": "Jaffna",
+			"name_ta": "யாழ்ப்பாணம்",
+			"coordinators": [
+				{
+					"name_en": "Navaneethan",
+					"contact_number": "0769184454"
+				},
+				{
+					"name_en": "Umakanthan",
+					"contact_number": "0770617191"
+				},
+				{
+					"name_en": "Harismenan",
+					"contact_number": "0771181193"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "Jaffna Hindu College",
+					"name_ta": "யாழ் இந்து கல்லூரி"
+				},
+				{
+					"name_en": "Jaffna Hindu Ladies’ College",
+					"name_ta": "யாழ் இந்து மகளிர் கல்லூரி"
+				},
+				{
+					"name_en": "Chavakachcheri Hindu College",
+					"name_ta": "சாவகச்சேரி இந்து கல்லூரி"
+				},
+				{
+					"name_en": "J/Nelliady Central College",
+					"name_ta": "யா/நெல்லியடி மத்திய கல்லூரி"
+				},
+				{
+					"name_en": "J/Methodist Girls High School",
+					"name_ta": "யா/மெதடிஸ்ட் மகளிர் உயர்தரப் பாடசாலை"
+				},
+				{
+					"name_en": "Ramanathan College",
+					"name_ta": "இராமநாதன் கல்லூரி"
+				},
+				{
+					"name_en": "Kopay Christian College",
+					"name_ta": "கோப்பாய் கிறிஸ்ரியன் கல்லூரி"
+				}
+			]
+		},
+		{
+			"name_en": "Kalutura",
+			"name_ta": "களுத்துறை",
+			"coordinators": [
+				{
+					"name_en": "Safan Sir",
+					"contact_number": "0773456016"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "Dharga Town Science Project (DSP)",
+					"name_ta": "தர்கா டவுன் அறிவியல் சிந்தனை (DSP)"
+				}
+			]
+		},
+		{
+			"name_en": "Kandy",
+			"name_ta": "கண்டி",
+			"centers": [
+				{
+					"coordinator": {
+						"name_en": "Afzal",
+						"contact_number": "0766569629"
+					},
+					"name_en": "K/Akurana Balika MMV",
+					"name_ta": "அக்குரானா பாலிகா மகா வித்தியாலயம்"
+				},
+				{
+					"coordinator": {
+						"name_en": "Aqeel",
+						"contact_number": "0763528658"
+					},
+					"name_en": "K/Kathiresan Central College",
+					"name_ta": "கதிரேசன் மத்திய கல்லூரி"
+				}
+			]
+		},
+		{
+			"name_en": "Kegalle",
+			"name_ta": "கேகாலை",
+			"centers": [
+				{
+					"coordinator": {
+						"name_en": "Rizwan sir",
+						"contact_number": "0764807648"
+					},
+					"name_en": "Ceylon Ladies' Campus, Warakapola",
+					"name_ta": "சிலான் மகளிர் வளாகம், வாரகபொல"
+				},
+				{
+					"coordinator": {
+						"name_en": "Afshan",
+						"contact_number": "0775461645"
+					},
+					"name_en": "KG/Mw/Zahira College, Mawanella",
+					"name_ta": "ஸாஹிரா கல்லூரி, மாவனெல்லா"
+				}
+			]
+		},
+		{
+			"name_en": "Kilinochchi",
+			"name_ta": "கிளிநொச்சி",
+			"coordinators": [
+				{
+					"name_en": "Tenojan",
+					"contact_number": "0762043709"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "Kilinochchi Madya Maha Vidyalayam",
+					"name_ta": "கிளிநொச்சி மத்திய மகா வித்தியாலயம்"
+				}
+			]
+		},
+		{
+			"name_en": "Kurunegala",
+			"name_ta": "குருநாகல்",
+			"centers": [
+				{
+					"coordinator": {
+						"name_en": "Zacky sir",
+						"contact_number": "0777123113"
+					},
+					"name_en": "Annoor National School",
+					"name_ta": "அன்நூர் தேசிய பாடசாலை "
+				},
+				{
+					"coordinator": {
+						"name_en": "Abdullah",
+						"contact_number": "0726463103"
+					},
+					"name_en": "Ku/Giri/Madeena National School, Giriulla",
+					"name_ta": "மதீனா தேசிய பாடசாலை, கிரில்லா"
+				},
+				{
+					"coordinator": {
+						"name_en": "Rifas Sir",
+						"contact_number": "0771735517, 0740166199"
+					},
+					"name_en": "Giri/Kekunagolla Central College (National School)/(ASDP)",
+					"name_ta": "கேகுனகொல்ல மத்திய கல்லூரி (தேசிய பாடசாலை) (ASDP)"
+				}
+			]
+		},
+		{
+			"name_en": "Mannar",
+			"name_ta": "மன்னார்",
+			"coordinators": [
+				{
+					"name_en": "Dinesious",
+					"contact_number": "0779177135"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "St.Xavier's Boys' National College",
+					"name_ta": "செயிண்ட் ஜேவியர்ஸ் ஆண்கள் தேசிய கல்லூரி"
+				},
+				{
+					"name_en": "Mn/Fatima M.M.V, Pesalai",
+					"name_ta": "ஃபாத்திமா எம்.எம்.வி, பேசாலை"
+				}
+			]
+		},
+		{
+			"name_en": "Matale",
+			"name_ta": "மாத்தளை",
+			"coordinators": [
+				{
+					"name_en": "Madhuragavan",
+					"contact_number": "0760033102"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "Pakkiyam National College",
+					"name_ta": "பாக்கியம் தேசிய  கல்லூரி "
+				}
+			]
+		},
+		{
+			"name_en": "Matara",
+			"name_ta": "மாத்தறை",
+			"centers": [
+				{
+					"coordinator": {
+						"name_en": "Sijahudeen sir",
+						"contact_number": "0764328807, 0716040807"
+					},
+					"name_en": "DFEC Science Project, Dickwella",
+					"name_ta": "DFEC அறிவியல் சிந்தனை, டிக்வெல்ல"
+				},
+				{
+					"coordinator": {
+						"name_en": "Faizer Sir",
+						"contact_number": "0779931493, 0778931493"
+					},
+					"name_en": "MR/Arafa National School, Weligama",
+					"name_ta": "அரஃபா தேசிய பாடசாலை, வெலிகாம"
+				}
+			]
+		},
+		{
+			"name_en": "Mullaitivu",
+			"name_ta": "முல்லைத்தீவு",
+			"coordinators": [
+				{
+					"name_en": "Subavarsana",
+					"contact_number": "0771521671"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "Mulliyawalai Vidyananda College",
+					"name_ta": "முள்ளியவளை வித்யாநந்தா கல்லூரி"
+				},
+				{
+					"name_en": "Puthukkudiyiruppu Central College",
+					"name_ta": "புதுக்குடியிருப்பு மத்திய கல்லூரி"
+				},
+				{
+					"name_en": "Mullaithivu Maha Vidyalayam",
+					"name_ta": "முல்லைத்தீவு மகா வித்தியாலயம்"
+				},
+				{
+					"name_en": "Mu/Visvamadu Maha Vidyalayam",
+					"name_ta": "விசுவமடு மகா வித்தியாலயம்"
+				},
+				{
+					"name_en": "Mu/Mallavi Central College",
+					"name_ta": "மல்லாவி மத்திய கல்லூரி"
+				},
+				{
+					"name_en": "Mu/Udayarkaddu Maha Vidyalayam",
+					"name_ta": "உடையார்கட்டு மகா வித்யாலயம்"
+				}
+			]
+		},
+		{
+			"name_en": "Nuwara Eliya",
+			"name_ta": "நுவரெலியா",
+			"coordinators": [
+				{
+					"name_en": "Yuwarajan",
+					"contact_number": "0717942233"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "Highlands College, Hatton",
+					"name_ta": "ஹைலண்ட்ஸ் கல்லூரி, ஹட்டன்"
+				},
+				{
+					"name_en": "Talawakelle Tamil Maha Vidyalayam",
+					"name_ta": "தலவாக்கல தமிழ் மகா வித்தியாலயம்"
+				},
+				{
+					"name_en": "Kotagala Tamil Maha Vidyalayam",
+					"name_ta": "கொடகல தமிழ் மகா வித்தியாலயம்"
+				}
+			]
+		},
+		{
+			"name_en": "Puttalam",
+			"name_ta": "புத்தளம்",
+			"coordinators": [
+				{
+					"name_en": "Inas",
+					"contact_number": "0766019966"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "President's Science College",
+					"name_ta": "பிரெசிடெண்ட்ஸ் அறிவியல் கல்லூரி"
+				},
+				{
+					"name_en": "Kadayamottai Muslim Central College",
+					"name_ta": "கடயமொட்டை முஸ்லிம் மத்திய கல்லூரி"
+				},
+				{
+					"name_en": "Mercy Education Campus",
+					"name_ta": "மெர்சி கல்வி மையம்"
+				}
+			]
+		},
+		{
+			"name_en": "Trincomalee",
+			"name_ta": "திருகோணமலை",
+			"coordinators": [
+				{
+					"name_en": "Theshikan",
+					"contact_number": "0754557664"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "T/R.K.M Sri Koneswara Hindu College",
+					"name_ta": "ஆர்.கே.எம் ஸ்ரீ கோணேஸ்வர இந்து கல்லூரி"
+				},
+				{
+					"name_en": "T/Kinniya Al-Hira Muslim Maha Vidyalayam",
+					"name_ta": "கின்னியா அல்-ஹீரா முஸ்லிம் மகா வித்தியாலயம்"
+				},
+				{
+					"name_en": "T/Mu/Mutur Central College",
+					"name_ta": "மூட்டூர் மத்திய கல்லூரி"
+				},
+				{
+					"name_en": "T/MU/Fathima Ladies' College",
+					"name_ta": "ஃபாத்திமா மகளிர் கல்லூரி"
+				}
+			]
+		},
+		{
+			"name_en": "Vavuniya",
+			"name_ta": "வவுனியா",
+			"coordinators": [
+				{
+					"name_en": "Abithan",
+					"contact_number": "0767703234"
+				}
+			],
+			"centers": [
+				{
+					"name_en": "V/Rambaikkulam Girls Maha Vidyalayam",
+					"name_ta": "ரம்பைக்குளம் பெண்கள் மகா வித்தியாலயம்"
+				},
+				{
+					"name_en": "V/Saivapragasa Ladies' College",
+					"name_ta": "சைவப்பிரகாச மகளிர் கல்லூரி"
+				},
+				{
+					"name_en": "V/Vavuniya Tamil Madhya Maha Vidyalayam",
+					"name_ta": "வவுனியா தமிழ் மத்திய மகா வித்தியாலயம்"
+				},
+				{
+					"name_en": "V/Cheddikulam Maha Vidyalayam",
+					"name_ta": "செட்டிகுளம் மகா வித்தியாலயம்"
+				}
+			]
+		}
+	]
+}

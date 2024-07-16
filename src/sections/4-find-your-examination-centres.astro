@@ -1,0 +1,138 @@
+---
+import SriLankanMap from "../components/SriLankanMap.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<section class="bg-extra-2-100 mt-30 py-10 h-full" id="exam-centres">
+	<h2 class="text-3xl mt-0 max-w-[30ch]">
+		{t("find_your_examination_centres__tile")}
+	</h2>
+	<SriLankanMap />
+	<div class="content">
+		<p class="text-xl max-w-prose mt-0">
+			{t("find_your_examination_centres__description")}
+		</p>
+
+		<div id="exam-centre-details">Exam Centre details will be shown here</div>
+	</div>
+</section>
+<script>
+	import EXAM_CENTRES_DATA from "../EXAM_CENTRES.json";
+	import { ExamCentreDetailsTable } from "../components/react/ExamCentreDetailsTable";
+	import { createRoot } from "react-dom/client";
+	import { getLangFromUrl } from "../i18n/utils";
+
+	/**
+	 * @type {null | typeof import("../EXAM_CENTRES.json").districts[number]}
+	 */
+	let selectedDistrict = null;
+	let examCentreDetailsRoot = null;
+
+	/**
+	 * @param {string} district
+	 * @param {boolean} shouldScroll
+	 */
+	function updateDistrict(district, shouldScroll = true) {
+		console.log("select", district);
+		selectedDistrict = null;
+
+		for (let i = 0; i < EXAM_CENTRES_DATA.districts.length; i++) {
+			const _district = EXAM_CENTRES_DATA.districts[i];
+			if (_district.name_en != district) {
+				continue;
+			}
+
+			selectedDistrict = _district;
+			console.log(selectedDistrict);
+			break;
+		}
+
+		if (selectedDistrict == null) {
+			console.error("unknown district:", district);
+			return;
+		}
+
+		const alreadySelected = document.querySelector("#SL-map path.selected");
+		if (alreadySelected) {
+			alreadySelected.classList.remove("selected");
+		}
+
+		const selectedPath = document.querySelector(
+			`path[data-title='${selectedDistrict.name_en}']`,
+		);
+		console.log(selectedPath);
+		if (selectedPath instanceof SVGPathElement) {
+			selectedPath.classList.add("selected");
+		} else {
+			console.warn("Invalid path", selectedPath);
+		}
+
+		const container = document.querySelector("#exam-centre-details");
+		if (!(container instanceof HTMLElement)) {
+			console.error("unknown container:", container);
+			return;
+		}
+
+		if (examCentreDetailsRoot == null) {
+			examCentreDetailsRoot = createRoot(container);
+		}
+
+		const language = getLangFromUrl(new URL(window.location.href));
+		examCentreDetailsRoot.render(
+			ExamCentreDetailsTable({
+				data: selectedDistrict,
+				languagePreference: language,
+			}),
+		);
+
+		// if (shouldScroll) {
+		// 	container.scrollIntoView();
+		// }
+	}
+
+	const slMap = document.querySelector("#SL-map");
+	if (!(slMap instanceof SVGElement)) {
+		console.error("slMap is not an SVGElement");
+	} else {
+		updateDistrict("Jaffna", false);
+		slMap.addEventListener("click", (event) => {
+			const targetElement = event.target;
+			console.log(targetElement);
+			if (targetElement instanceof SVGPathElement) {
+				console.log(targetElement.dataset.title);
+				updateDistrict(targetElement.dataset.title);
+			}
+		});
+	}
+</script>
+<style>
+	section {
+		@apply grid grid-cols-1 grid-rows-[1fr_auto_auto] md:grid-cols-[1fr_auto] md:grid-rows-[auto_1fr] gap-8;
+		grid-template-areas:
+			"title"
+			"map"
+			"content";
+	}
+	section {
+		background-color: rgb(229, 168, 237);
+	}
+	@media (min-width: 768px) {
+		section {
+			grid-template-areas:
+				"map title"
+				"map content";
+		}
+	}
+	h2 {
+		@apply h-fit m-0;
+		grid-area: title;
+	}
+	.content {
+		grid-area: content;
+	}
+	#exam-centre-details {
+		scroll-margin-top: 16vw;
+	}
+</style>

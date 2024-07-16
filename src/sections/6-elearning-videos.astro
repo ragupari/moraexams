@@ -1,0 +1,30 @@
+---
+import VideoCard from "../components/VideoCard.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+// JS required for this section goes here (don't bother for now)
+---
+
+<section class="my-10">
+	<h2 class="text-center">{t("elearning_videos_title")}</h2>
+	<p class="text-center text-xl my-8 px-14">
+		{t("elearning_videos_p")}
+	</p>
+	<div
+		class="grid grid-cols-1 sm:grid-cols-3 max-w-4xl gap-4 mt-10 mx-auto text-center"
+	>
+		<VideoCard
+			href="https://www.youtube.com/watch?v=_Q4DpITrqeQ&list=PL7rqMCp2H_mRqMLtF-QEYsiHhwgzn5ifn"
+			subject="combined-maths"
+		/>
+		<VideoCard
+			href="https://www.youtube.com/watch?v=Iz52RhejUco&list=PL7rqMCp2H_mQ1lASzvCKicK19cB6IcihD"
+			subject="physics"
+		/>
+		<VideoCard
+			href="https://www.youtube.com/watch?v=9uxap27eeps&list=PL7rqMCp2H_mTyC9g8FjscRqLDSEkFivpP"
+			subject="chemistry"
+		/>
+	</div>
+</section>

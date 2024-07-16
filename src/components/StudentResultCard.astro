@@ -1,0 +1,153 @@
+---
+import { isSupportedLanguage, useTranslations } from "../i18n/utils";
+import StaticInformationField from "./StaticInformationField.astro";
+import StudentRankCard from "./StudentRankCard.astro";
+
+const { lang } = Astro.params;
+
+if (!isSupportedLanguage(lang)) {
+	return;
+}
+const t = useTranslations(lang);
+
+interface Details {
+	name: string;
+	index_no: string;
+	nic: string;
+	ranking_district: string;
+	district_rank: number;
+	island_rank: number;
+	// zscore: number;
+	sub_grp_id: string;
+	centre_name: string;
+	sub1: string;
+	sub1_result: string;
+	sub2: string;
+	sub2_result: string;
+	sub3: string;
+	sub3_result: string;
+}
+interface Props {
+	details: Details;
+}
+
+const { details } = Astro.props;
+
+let subjectStream: string = "Other";
+
+if (details.sub_grp_id == "Agri (BIO)") {
+	subjectStream = "Biology-Agriculture-Chemistry";
+}
+if (details.sub_grp_id == "BIO") {
+	subjectStream = "Biological Science";
+}
+if (details.sub_grp_id == "BIO_CHEMISTRY_ICT") {
+	subjectStream = "Biology-Chemistry-ICT";
+}
+if (details.sub_grp_id == "BIO_PHYSICS_ICT") {
+	subjectStream = "Biology-Physics-ICT";
+}
+if (details.sub_grp_id == "ICT (MATHS)") {
+	subjectStream = "Physical Science + ICT";
+}
+if (details.sub_grp_id == "ICT ONLY") {
+	subjectStream = "ICT Only";
+}
+if (details.sub_grp_id == "MATHS") {
+	subjectStream = "Physical Science";
+}
+
+if (details.sub1_result == "AB") {
+	details.sub1_result = details.sub1_result.toLowerCase();
+}
+if (details.sub2_result == "AB") {
+	details.sub2_result = details.sub2_result.toLowerCase();
+}
+if (details.sub3_result == "AB") {
+	details.sub3_result = details.sub3_result.toLowerCase();
+}
+---
+
+<div>
+	<div
+		class="text-lg w-full max-w-[45rem] text-black grid grid-cols-5 gap-x-3 gap-y-3"
+	>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+		<StaticInformationField
+			title="Name"
+			value={details.name.toUpperCase()}
+			class="col-span-full"
+		/>
+		<StaticInformationField
+			title="Index No"
+			value={details.index_no}
+			class="col-span-2"
+		/>
+		<StaticInformationField
+			title="NIC No"
+			value={details.nic}
+			class="col-span-3"
+		/>
+		<StaticInformationField
+			title="Stream"
+			value={subjectStream}
+			class="col-span-2"
+		/>
+		<StaticInformationField
+			title="District"
+			value={details.ranking_district}
+			class="col-span-3"
+		/>
+
+		<table class="my-6 col-span-full md:col-span-2 text-2xl pr-1d">
+			{
+				details.sub1 === null ? null : (
+					<tr>
+						<td>{details.sub1}</td>
+						<td>{details.sub1_result}</td>
+					</tr>
+				)
+			}
+			{
+				details.sub2 === null ? null : (
+					<tr>
+						<td>{details.sub2}</td>
+						<td>{details.sub2_result}</td>
+					</tr>
+				)
+			}
+			{
+				details.sub3 === null ? null : (
+					<tr>
+						<td>{details.sub3}</td>
+						<td>{details.sub3_result}</td>
+					</tr>
+				)
+			}
+		</table>
+
+		<div class="flex col-span-full md:col-span-3 items-center justify-center">
+			<StudentRankCard title="District Rank" rank={details.district_rank} />
+			<StudentRankCard title="Island Rank" rank={details.island_rank} />
+		</div>
+
+		<!-- <div class="grid grid-cols-3 gap-4 mt-4 w-full">
+		{
+			details.subjects.map((subject) => {
+				return <SubjectResultItem result={subject} />;
+			})
+		}
+	</div> -->
+	</div>
+
+	<a href="./results">
+		<button
+			class="w-full sm:w-fit py-2 px-4 rounded-full text-primary-800 text-xl bg-white hover:bg-delft-blue-50/50 border border-sm border-black/25 focus:outline-none focus:shadow focus:border-none"
+		>
+			<i class="fa-solid fa-arrow-left"></i><span class="ml-3">Back</span>
+		</button>
+	</a>
+</div>

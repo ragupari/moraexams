@@ -1,0 +1,96 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+interface Props {
+	pageTitle: string;
+}
+
+const { pageTitle } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const ogImageUrl = new URL(Astro.url);
+ogImageUrl.pathname = "/og-image.jpg";
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={t("meta__description")} />
+		<meta property="og:description" content={t("meta__description")} />
+		<title>{pageTitle}</title>
+		<meta property="og:title" content={pageTitle} />
+
+		<!-- TODO favicon -->
+		<!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /> -->
+		<link rel="icon" type="image/svg" sizes="16x16" href="/favicon.svg" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+			integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
+		<meta
+			name="keywords"
+			content="Pilot Exam, mora exam, A/L exam, exam mora, mora exam 2021, moratuwa university exam, moratuwa exam, moraetamils, moraetamils exam, moraexam, moraetamils, mora etamils "
+		/>
+
+		<meta property="og:url" content={Astro.url.toString()} />
+		<meta property="og:image" content={ogImageUrl.toString()} />
+
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-GD74616M9F"
+		></script>
+		<script>
+			// @ts-expect-error
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				// @ts-expect-error
+				window.dataLayer.push(arguments);
+			}
+			// @ts-expect-error
+			gtag("js", new Date());
+			// @ts-expect-error
+			gtag("config", "G-GD74616M9F");
+		</script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	* {
+		font-family: "Poppins", "Noto Sans Tamil", sans-serif;
+		box-sizing: border-box;
+	}
+	html,
+	body {
+		@apply m-0 scroll-smooth;
+	}
+	:root {
+		--body-width: min(96rem, 92vw);
+		--body-margin-x: calc((100vw - var(--body-width)) / 2);
+		font-size: 16px;
+	}
+	html[lang="ta"] {
+		font-size: 14px;
+	}
+	h2 {
+		@apply text-3xl;
+	}
+	a,
+	button {
+		@apply cursor-pointer;
+	}
+</style>

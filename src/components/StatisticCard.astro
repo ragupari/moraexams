@@ -1,0 +1,30 @@
+---
+import InViewNumberAnimator from "./react/InViewNumberAnimator";
+
+interface Props {
+	value: number;
+	text: string;
+}
+
+const { value, text } = Astro.props;
+---
+
+<div class="text-center px-12 pointer-events-none">
+	<h2 class="text-7xl text-center my-0">
+		<InViewNumberAnimator client:only="react" targetValue={value} />
+	</h2>
+
+	<p class="text-center text-xl mt-0">{text}</p>
+</div>
+
+<style>
+	/* div {
+		transition-property: box-shadow, transform;
+		transition-duration: 350ms;
+		transition-timing-function: ease;
+	}
+	div:is(:hover, :focus) {
+		color: #00ff00;
+		transform: translateY(-8px);
+	} */
+</style>

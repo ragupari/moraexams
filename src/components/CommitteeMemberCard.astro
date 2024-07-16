@@ -1,0 +1,36 @@
+---
+import type { Language } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+	post: string;
+	lang: Language;
+}
+const { post, lang } = Astro.props;
+const t = useTranslations(lang);
+
+// @ts-expect-error
+const name = t(`committee__${post}_name`);
+// @ts-expect-error
+const displayPost = t(`committee__${post}_post`);
+// @ts-expect-error
+const faculty = t(`committee__${post}_faculty`);
+---
+
+<div class="p-3 rounded-xl bg-[#fff]">
+	<div class="w-full h-auto rounded-full p-4">
+		<img
+			class="w-full h-auto rounded-full aspect-square"
+			src={`/committee/${post.toLowerCase()}.jpg`}
+		/>
+	</div>
+	<div class="text-center p-0">
+		<h4 class="text-xl p-0 mt-0">{name.toUpperCase()}</h4>
+		<p>
+			<span class="p-0 text-xl text-[#cd5c5c]">{displayPost}</span><br />
+			 BSc Eng. (Hons) (Reading),<br />{faculty},<br />{
+				t("committee__university")
+			}
+		</p>
+	</div>
+</div>

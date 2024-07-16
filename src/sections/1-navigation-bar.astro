@@ -1,0 +1,183 @@
+---
+import HeaderContactLink from "../components/HeaderContactLink.astro";
+import NavLink from "../components/NavLink.astro";
+import HeaderContactIcon from "../components/HeaderContactIcon.astro";
+import LanguageSelector from "../components/LanguageSelector.astro";
+
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+interface Props {
+	hideLogo?: boolean;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { hideLogo } = Astro.props;
+---
+
+<header class="hidden sm:flex items-center py-1 bg-transparent text-white">
+	<HeaderContactLink icon="envelope" href="mailto:examsmora@gmail.com">
+		examsmora@gmail.com
+	</HeaderContactLink>
+	<!-- <HeaderContactLink icon="phone" href="tel:+94704616400">
+		+94 70 461 6400
+	</HeaderContactLink> -->
+	<div class="ml-auto">
+		<HeaderContactIcon name="twitter" />
+		<HeaderContactIcon name="youtube" />
+		<HeaderContactIcon name="facebook" />
+		<HeaderContactIcon name="linkedin" />
+		<HeaderContactIcon name="telegram" />
+	</div>
+</header>
+
+<nav
+	id="original"
+	class="flex items-center gap-x-2 py-3 sm:py-2 bg-transparent text-white z-10"
+>
+	<div>
+		<a
+			class={"text-3xl font-bold text-inherit inline-block no-underline relative z-30 order-1 transition-colors".concat(
+				hideLogo ? " logo-title" : "",
+			)}
+			href=`/${lang}/`
+		>
+			{t("index__title")}
+		</a>
+	</div>
+	
+
+	<input type="checkbox" class="hidden" id="nav-bar-toggle" />
+	<label
+		for="nav-bar-toggle"
+		class="block sm:hidden h-fit cursor-pointer relative z-30 opacity-80 order-3"
+	>
+		<div class="h-1 w-7 mb-2 bg-white rounded-sm" id="nav-bar-toggle-line-1">
+		</div>
+		<div class="h-1 w-7 bg-white rounded-sm" id="nav-bar-toggle-line-2"></div>
+	</label>
+
+	<ul
+		class={[
+			`m-0 pl-[var(--body-margin-x)] pt-[12vh] text-2xl flex flex-wrap flex-col gap-y-8 gap-x-5 fixed top-0 bottom-0 right-0 left-0 z-20 translate-x-[-100%] h-[100vh] backdrop-blur order-2 mx-auto bg-primary-700`,
+			`sm:ml-25 sm:p-0 sm:flex-row sm:gap-y-0 sm:justify-end sm:static sm:translate-x-[0] sm:items-center sm:bg-inherit sm:h-fit sm:text-base`,
+		].join(" ")}
+	>
+		<NavLink text={t("nav__home")} href="/" />
+		<!-- <NavLink text={t("nav__timetable")} href={`/${lang}#timetable`} /> -->
+		<!---<NavLink text={t("nav__exam_centres")} href={`/${lang}#exam-centres`} /> -->
+		<NavLink text={t("nav__resources")} href={`/${lang}#past-papers`} />
+		<NavLink text={t("nav__practice_papers")} href={`/practicepapers`} />
+		
+
+		<!-- <NavLink text="Contact Us" /> -->
+	</ul>
+
+	<LanguageSelector
+		class="lang-selector order-2 ml-auto mr-2 sm:m-0 sm:order-3"
+	/>
+	
+</nav>
+
+<script>
+	const nav = document.querySelector("nav#original");
+	const cloned = nav.cloneNode(true);
+	if (!(cloned instanceof HTMLElement)) {
+		throw new Error("cloned element is not HTMLElement");
+	}
+	cloned.id = "cloned";
+	document.body.children[0].appendChild(cloned);
+
+	/**
+	 * @param {HTMLElementEventMap["click"]} event
+	 * @returns {any}
+	 */
+	function navClickListener(event) {
+		const targetElement = event.target;
+		if (!(targetElement instanceof HTMLAnchorElement)) {
+			return;
+		}
+		const items = document.querySelectorAll("#nav-bar-toggle");
+		for (const item of [items]) {
+			if (!(item instanceof HTMLInputElement)) {
+				continue;
+			}
+			item.checked = false;
+		}
+	}
+
+	nav.addEventListener("click", navClickListener);
+	cloned.addEventListener("click", navClickListener);
+
+	let isNavFixed = false;
+	window.addEventListener("scroll", (event) => {
+		const navPositionY = nav.getBoundingClientRect().y;
+		if (window.scrollY <= navPositionY) {
+			isNavFixed = false;
+			cloned.classList.remove("nav-fixed");
+			cloned.getBoundingClientRect();
+			return;
+		}
+		if (isNavFixed) return;
+		isNavFixed = true;
+		cloned.classList.add("nav-fixed");
+		cloned.getBoundingClientRect();
+	});
+
+	function checkNavOpenedOnMobile() {
+		const navToggles = document.querySelectorAll("#nav-bar-toggle");
+		let isNavOpened = false;
+
+		for (let item of [navToggles]) {
+			if (!(item instanceof HTMLInputElement)) {
+				continue;
+			}
+			if (item.checked) {
+				isNavOpened = true;
+				break;
+			}
+		}
+
+		document.body.classList.toggle("disable-scrolling", isNavOpened);
+		requestAnimationFrame(checkNavOpenedOnMobile);
+	}
+
+	if (window.innerWidth < 640 && !CSS.supports("a:has()")) {
+		checkNavOpenedOnMobile();
+	}
+</script>
+
+<style>
+	header,
+	nav {
+		@apply px-[var(--body-margin-x)];
+	}
+	ul {
+		transition: transform 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+		transition-delay: 0.1s;
+	}
+	#nav-bar-toggle:checked ~ ul {
+		@apply translate-x-0;
+	}
+	label > div {
+		@apply origin-center transition-transform;
+	}
+	#nav-bar-toggle:checked ~ label > div {
+		@apply scale-x-90;
+	}
+	#nav-bar-toggle:checked ~ label #nav-bar-toggle-line-1 {
+		@apply rotate-[45deg] translate-y-[0.375rem];
+	}
+	#nav-bar-toggle:checked ~ label #nav-bar-toggle-line-2 {
+		@apply rotate-[-45deg] translate-y-[-0.375rem];
+	}
+	nav#cloned {
+		@apply hidden pointer-events-none;
+	}
+	nav#cloned.nav-fixed {
+		@apply flex fixed top-0 bg-primary-900 right-0 left-0 pointer-events-auto;
+	}
+	.logo-title {
+		@apply text-transparent;
+	}
+</style>

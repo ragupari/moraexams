@@ -1,0 +1,80 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+interface Props {
+	name: string;
+	state: string;
+	body: string;
+	batch: string;
+}
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+const { name, state, body, batch } = Astro.props;
+// @ts-expect-error
+const displayName = t(`feedback_${name}_name`);
+---
+
+<div class="card" style="margin: 30px;">
+	<img src={`/achievers/${name}.jpg`} alt={displayName} />
+	<div class="info">
+		<h3>
+			{displayName}
+			<!-- <br />
+			{state}<br />
+			{batch} -->
+		</h3>
+
+		<span class="block">{state}</span>
+		<span>{batch}</span>
+	</div>
+	<p>
+		{body}
+	</p>
+</div>
+<style>
+	.card {
+		--width: min(29rem, 90vw);
+		--height: 25rem;
+
+		@apply flex bg-secondary-900 transition-all flex-col px-3 py-6 opacity-90 rounded-lg cursor-pointer snap-center relative text-white items-center overflow-hidden;
+		min-width: var(--width);
+		height: var(--height);
+	}
+	.card:hover {
+		@apply bg-secondary-950 opacity-100;
+	}
+	img,
+	.info,
+	p {
+		@apply transition-transform;
+		transform-origin: center;
+		transition-duration: 350ms;
+	}
+	img {
+		@apply aspect-square rounded-full w-24 justify-self-center mb-4;
+		transform: translateY(calc(0.05 * var(--width)));
+	}
+	.card:hover img {
+		transform: translateX(calc(-0.33 * var(--width))) scale(0.8);
+	}
+	h3 {
+		@apply m-0 text-center text-2xl h-fit;
+	}
+	.info {
+		@apply text-center;
+		transform: translateY(calc(0.05 * var(--width)));
+	}
+	.card:hover .info {
+		transform: translateX(calc(0.1 * var(--width)))
+			translateY(calc(-0.28 * var(--height)));
+	}
+	p {
+		@apply content-center text-lg text-center px-4 text-white lg:text-lg h-0;
+		transform: translateY(200px);
+	}
+	.card:hover p {
+		transform: translateY(calc(-0.22 * var(--height)));
+		@apply h-full;
+	}
+</style>
+
+<!-- Make the cards more space efficient and horizontal scrolling accessible via buttons -->

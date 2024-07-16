@@ -1,0 +1,16 @@
+{
+	"title_en": "Mora Exams 23 | Committee",
+	"title_ta": "அம்பாறை",
+	"executive": [
+		{
+			"name_en": "T. Sarujan",
+			"name_ta": "T. Sarujan",
+			"post_en": "President",
+			"post_ta": "President",
+			"designation_en": "Civil Engineering Department",
+			"contact_number": "0759047407"
+		}
+	]
+}
+
+// testing categorizing data to make it easy to edit and access for future use cases

@@ -1,0 +1,45 @@
+---
+import StatisticCard from "../components/StatisticCard.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<section class="px-5">
+	<div class="grid grid-flow-col" id="counter">
+		<hr />
+		<StatisticCard value={15} text={t("statistics__years")} /><hr />
+		<StatisticCard value={22} text={t("statistics__districts")} /><hr />
+		<StatisticCard value={71} text={t("statistics__centers")} /><hr />
+		<StatisticCard value={6821} text={t("statistics__candidates")} /><hr />
+	</div>
+</section>
+<style>
+	div {
+		/* align-items: center; */
+	}
+	section {
+		@apply text-primary-100 pt-10 pb-5;
+		background: url("/assets/backgrounds/bg6.png") center / cover no-repeat
+			fixed;
+	}
+	hr {
+		height: 100px;
+		border: 3px solid theme(colors.rust-orange.400);
+		border-radius: 10px;
+	}
+	@media (max-width: 900px) {
+		div {
+			display: grid;
+			grid-auto-flow: row;
+		}
+		hr {
+			height: 0%;
+			width: 70%;
+			border: 3px solid theme(colors.rust-orange.400);
+			border-radius: 10px;
+		}
+	}
+</style>
+
+<!-- todo: programmatically generate counts -->

@@ -1,0 +1,239 @@
+---
+export const prerender = false;
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../sections/16-footer.astro";
+
+import NavigationBar from "../../sections/1-navigation-bar.astro";
+import { isSupportedLanguage, useTranslations } from "../../i18n/utils";
+
+import { db, applicants, results } from "../../db";
+import { eq } from "drizzle-orm";
+import StudentResultCard from "../../components/StudentResultCard.astro";
+
+const { lang } = Astro.params;
+
+if (!isSupportedLanguage(lang)) {
+	return;
+}
+const t = useTranslations(lang);
+
+let indexNumber = undefined;
+
+if (Astro.request.method == "POST") {
+	const formData = await Astro.request.formData();
+	indexNumber = formData.get("i").toString() || undefined;
+}
+
+console.log("result for", indexNumber);
+
+let studentResults = undefined;
+
+// const get_result = async (
+// 	nic_number: string,
+// ): Promise<{ id: string; name: string; medium: string; nic: string }[]> => {
+// 	const result = await db.query.applicants.findMany({
+// 		where: eq(applicants.nic, nic_number),
+// 	});
+// 	return result;
+// };
+
+// const showResultButton = document.getElementById("showresultbtn");
+// showResultButton.addEventListener("click", async function () {
+// const showResultInput = document.getElementById(
+// 	"showresultin",
+// ) as HTMLInputElement;
+
+// if (!(showResultInput instanceof HTMLInputElement)) {
+// 	console.error("showResultInput is not found or not an input");
+// 	return;
+// }
+
+// var nic_number = showResultInput.value;
+
+// const result = await get_result(nic_number);
+
+if (indexNumber) {
+	// studentResults = {
+	// 	index_no: "40404",
+	// 	name: "Virusan Thavanathan",
+	// 	nic: "200350050005",
+	// 	sub_grp_id: "MATHS",
+	// 	ranking_district: "Jaffna",
+	// 	sub1: "Combined Mathematics",
+	// 	sub1_result: "A",
+	// 	sub2: "Physics",
+	// 	sub2_result: "C",
+	// 	sub3: "Chemistry",
+	// 	sub3_result: "A",
+	// 	zscore: "2.2002",
+	// 	district_rank: "11",
+	// 	island_rank: "24",
+	// };
+	studentResults = await db
+		.select({
+			index_no: applicants.id,
+			name: applicants.name,
+			nic: applicants.nic,
+			sub_grp_id: applicants.sub_grp_id,
+			ranking_district: applicants.district_ranking,
+			sub1: results.sub1,
+			sub1_result: results.sub1_result,
+			sub2: results.sub2,
+			sub2_result: results.sub2_result,
+			sub3: results.sub3,
+			sub3_result: results.sub3_result,
+			// zscore: results.zscore,
+			district_rank: results.district_rank,
+			island_rank: results.island_rank,
+		})
+		.from(results)
+		.innerJoin(applicants, eq(results.id, applicants.id))
+		.where(eq(applicants.id, indexNumber))
+		.then((d) => {
+			console.log("d", d);
+			if (d.length == 0) {
+				return null;
+			}
+			return d[0];
+		})
+		.catch((e) => (console.error(e), null));
+	console.log(studentResults);
+
+	// const result = await db.query.results
+	// 	.findFirst({
+	// 		where: eq(results.id, indexNumber),
+	// 	})
+	// 	.catch(console.error);
+
+	// selectedStudentDetails = { ...result, district_rank: 459, island_rank: 1109 };
+}
+
+// alert("Button was clicked! " + result.name);
+// });
+---
+
+<Layout pageTitle={t("results__title")}>
+	<div class="bg-purple-800">
+		<NavigationBar />
+	</div>
+	<section
+		class="min-h-screen bg-delft-blue-50/50 text-primary-900 flex justify-center"
+	>
+		<div
+			class="max-w-screen-xl my-10 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center px-6 py-5 sm:p-12 lg:flex-row flex-col items-center h-fit flex-1"
+		>
+			{
+				typeof studentResults == "undefined" ? (
+					<>
+						<div>
+							<div class="flex flex-col justify-center max-w-[50ch]">
+								<h1 class="text-3xl xl:text-4xl my-2">
+									{t("find_your_results")}
+								</h1>
+								<p class="text-xl xl:text-2xl text-black mt-0">
+									{t("find_your_results_p")}
+								</p>
+								<form
+									method="POST"
+									action={`/${lang}/results`}
+									style="display: contents;"
+									data-netlify-recaptcha="true"
+									data-netlify="true"
+								>
+									<div class="grid grid-cols-2 gap-y-6 gap-x-2">
+										<input
+											class="w-full max-w-2xl px-8 py-4 text-lg rounded-lg bg-delft-blue-50/25 border border-primary-900/20 placeholder-rust-orange-50 text-md focus:outline-none focus:border-gray focus:bg-white mt-4 col-span-2"
+											type="text"
+											name="i"
+											id="showresultin"
+											value={indexNumber}
+											placeholder={t("index_no")}
+											required
+										/>
+										<div data-netlify-recaptcha="true" class="col-span-full" />
+
+										<button
+											id="showresultbtn"
+											class="w-fit h-fit py-2 px-5 rounded-full text-primary-800 text-xl bg-white hover:bg-delft-blue-50/50 border border-sm border-black/25 focus:outline-none focus:shadow focus:border-none"
+										>
+											<i class="fa-solid fa-magnifying-glass" />
+											<span class="ml-3">{t("find_button")}</span>
+										</button>
+										<a
+											href={`/${lang}/find-your-index-number`}
+											class="self-center place-self-end"
+										>
+											Forgot index number?
+										</a>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="max-w-[500px] flex-1 p-6">
+							<div class="text-center text-black mb-1 text-lg">
+								OUR PLATINUM SPONSOR
+							</div>
+							<img
+								src="/assets/northway-ad.jpeg"
+								class="min-w-[240px] max-w-full h-auto rounded-lg aspect-auto"
+							/>
+						</div>
+					</>
+				) : studentResults === null ? (
+					<div class="h-fit grid grid-cols-[1fr_auto] gap-x-4 pt-4">
+						<h1 class="text-7xl text-red-500 mt-0 col-span-2">Not found</h1>
+
+						<p class="max-w-prose col-span-2 mt-0 text-red-800 font-semibold">
+							Note: Unacceptable behavior during exams and/or failing to submit
+							essential details correctly may prohibit grades for the condidate.
+						</p>
+						<div class="col-span-2 text-black mb-4">
+							<span class="max-w-prose">
+								For inquiries (only on appropriate hours)
+							</span>
+							<ul style="list-style: '- '" class="px-6">
+								<li class="contact-no">Sansayan (0758757205)</li>
+								<li class="contact-no">Kathurshan (0770498196)</li>
+								<li class="contact-no">Thaarushan (0760270341)</li>
+								<li class="contact-no">Mathumilan (0763514599)</li>
+							</ul>
+						</div>
+						<a href="./results">
+							<button class="w-full sm:w-fit py-2 px-4 rounded-full text-primary-800 text-xl bg-white hover:bg-delft-blue-50/50 border border-sm border-black/25 focus:outline-none focus:shadow focus:border-none">
+								<>
+									<i class="fa-solid fa-arrow-left" />
+									<span class="ml-3">Back</span>
+								</>
+							</button>
+						</a>
+						<a
+							href={`/${lang}/find-your-index-number`}
+							class="place-self-center h-fit inline"
+						>
+							Forgot index number?
+						</a>
+					</div>
+				) : (
+					<StudentResultCard details={studentResults} />
+				)
+			}
+		</div>
+	</section>
+</Layout>
+
+<style is:global>
+	@media screen and (max-width: 400px) {
+		input {
+			font-size: 16px;
+		}
+	}
+	table {
+		width: 100%;
+	}
+	td:nth-child(2) {
+		text-align: center;
+	}
+	.contact-no {
+		@apply font-[500] w-fit;
+	}
+</style>

@@ -1,0 +1,21 @@
+---
+import Button from "../components/Button.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<section class="w-full py-10 text-center" id="past-papers">
+	<h2 class="text-3xl mt-0">{t("looking_for_past_papers__title")}</h2>
+	<p class="text-xl">
+		{t("looking_for_past_papers__description")}
+	</p>
+	<a href="https://bit.ly/moraexamspp">
+		<Button>{t("looking_for_past_papers__button")}</Button>
+	</a>
+	<a
+		href="https://drive.google.com/drive/folders/1ZivLO18_dEHd53VGWkstlHR3PCsw1hOR?usp=drive_link"
+	>
+		<Button>{t("schemes_button")}</Button>
+	</a>
+</section>
