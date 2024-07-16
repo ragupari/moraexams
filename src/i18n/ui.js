@@ -191,7 +191,7 @@ export const ui = Object.freeze({
 		committee__president_post: "President",
 		committee__secretary_name: "S. Kajaluxan",
 		committee__secretary_post: "Secretary",
-		committee__treasurer_name: "N. Luxan",
+		committee__treasurer_name: "N. Luxsan",
 		committee__treasurer_post: "Treasurer",
 		committee__vice_president_name: "S. Rahavi",
 		committee__vice_president_post: "Vice President",
