@@ -45,6 +45,7 @@ const { hideLogo } = Astro.props;
 			{t("index__title")}
 		</a>
 	</div>
+	
 
 	<input type="checkbox" class="hidden" id="nav-bar-toggle" />
 	<label
@@ -62,16 +63,20 @@ const { hideLogo } = Astro.props;
 			`sm:ml-25 sm:p-0 sm:flex-row sm:gap-y-0 sm:justify-end sm:static sm:translate-x-[0] sm:items-center sm:bg-inherit sm:h-fit sm:text-base`,
 		].join(" ")}
 	>
-		<NavLink text={t("nav_home")} href="/" />
+		<NavLink text={t("nav__home")} href="/" />
 		<!-- <NavLink text={t("nav__timetable")} href={`/${lang}#timetable`} /> -->
-		<NavLink text={t("nav__exam_centres")} href={`/${lang}#exam-centres`} />
+		<!---<NavLink text={t("nav__exam_centres")} href={`/${lang}#exam-centres`} /> -->
 		<NavLink text={t("nav__resources")} href={`/${lang}#past-papers`} />
+		<NavLink text={t("nav__practice_papers")} href={`/practicepapers`} />
+		
+
 		<!-- <NavLink text="Contact Us" /> -->
 	</ul>
 
 	<LanguageSelector
 		class="lang-selector order-2 ml-auto mr-2 sm:m-0 sm:order-3"
 	/>
+	
 </nav>
 
 <script>

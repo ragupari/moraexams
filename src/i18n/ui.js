@@ -40,6 +40,8 @@ for (const d of EXAM_CENTRES.districts) {
  * @prop {string} nav__exam_centres
  * @prop {string} nav__resources
  * @prop {string} nav__about
+ * @prop {string} nav__practice_papers
+ * @prop {string} nav__home
  * @prop {string} hero__title
  * @prop {string} find_your_examination_centres__tile
  * @prop {string} find_your_examination_centres__description
@@ -158,6 +160,9 @@ for (const d of EXAM_CENTRES.districts) {
  * @prop {string} schemes_button
  * @prop {string} results__title
  * @prop {string} find_your_index_no__title
+ * @prop {string} practice_papers_title
+ * @prop {string} practice_papers_p
+
  */
 
 /**
@@ -169,11 +174,11 @@ export const ui = Object.freeze({
 		meta__description:
 			"Mora Exams is the largest, island-wide pioneer exam for A/L students. It proves to be incredibly helpful before entering the final exams, providing access to past papers and model papers.",
 
-		nav_home: "Home",
+		nav__home: "Home",
 		nav__timetable: "Timetable",
-		nav__exam_centres: "Exam Centres",
 		nav__resources: "Resources",
 		nav__about: "About Us",
+		nav__practice_papers: "Practice Papers",
 
 		hero__title: "Sri Lanka's biggest pilot exams for G.C.E. Advanced Level",
 
@@ -191,7 +196,7 @@ export const ui = Object.freeze({
 		committee__president_post: "President",
 		committee__secretary_name: "S. Kajaluxan",
 		committee__secretary_post: "Secretary",
-		committee__treasurer_name: "N. Luxsan",
+		committee__treasurer_name: "N. Luxan",
 		committee__treasurer_post: "Treasurer",
 		committee__vice_president_name: "S. Rahavi",
 		committee__vice_president_post: "Vice President",
@@ -214,7 +219,8 @@ export const ui = Object.freeze({
 		footer_title_4_s3: "E-learning Videos",
 		footer_title_4_s4: "E-learning Site",
 		footer_title_4_s5: "Doubts Forms",
-
+		practice_papers_title:"Practice Papers",
+		practice_papers_p:"We have a collection of practice papers for each subject, prepared under the guidance of our engineering students of University of Morwatuwa. Click on any of the subjects listed below and download the respective papers.",
 		elearning_videos_title: "E-Learning videos",
 		elearning_videos_p:
 			"We have done video explanations regarding important topics in each subject on our YouTube channel. Click on any of the subjects listed below and view the respective videos.",
@@ -343,6 +349,7 @@ export const ui = Object.freeze({
 		nav__exam_centres: "பரீட்சை நிலையங்கள்",
 		nav__resources: "வளங்கள்",
 		nav__about: "எம்மைப் பற்றி",
+		nav__practice_papers: "பயிற்சி வினாத்தாள்கள்",
 		hero__title: "இலங்கையின் மாபெரும் உயர்தர முன்னோடிப்பரீட்சை",
 		find_your_examination_centres__tile:
 			"உங்களது பரீட்சை நிலையத்தை கண்டறியுங்கள்",
@@ -378,6 +385,8 @@ export const ui = Object.freeze({
 		footer_title_4_s3: "மின் கற்றல் வீடியோக்கள்",
 		footer_title_4_s4: "மின் கற்றல் தளம்",
 		footer_title_4_s5: "சந்தேக படிவங்கள்",
+		practice_papers_title:"பயிற்சி வினாத்தாள்கள்",
+		practice_papers_p:"மொறட்டுவைப்  பல்கலைக்கழக பொறியியல் மாணவர்களின் வழிகாட்டலின் கீழ் தயாரிக்கப்பட்ட பயிற்சி வினாத்தாள் தொகுப்பு. கீழுள்ள இணைப்பின் ஊடாக தரையிறக்கம் செய்துகொள்ள முடியும்.",
 		elearning_videos_title: "மின் கற்றல் வீடியோக்கள்",
 		elearning_videos_p:
 			"எங்கள் You Tube சேனலில் ஒவ்வொரு பாடத்திலும் முக்கியமான தலைப்புகள் குறித்து காணொளி விளக்கங்கள் செய்துள்ளோம். கீழே பட்டியலிடப்பட்டுள்ள ஏதேனும் ஒன்றைத் தெரிவுசெய்து அந்தந்த காணொளிகளைப் பார்க்கவும்.",

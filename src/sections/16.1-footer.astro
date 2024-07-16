@@ -1,0 +1,28 @@
+---
+import Icons from "../components/Icons.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+
+<div class="pt-1 text-center border-t-2">
+	<hr />
+	<p>
+		<!-- Rights reserved to <span class="font-semibold">Mora Exams</span>. -->
+		<!-- <br /> -->
+		Made with 💟 by <a
+			class="no-underline font-semibold text-primary-800"
+			href="https://github.com/moraexams">Mora Exams</a
+		>
+	</p>
+</div>
+
+<style>
+	ul {
+		@apply p-0;
+	}
+	ul li {
+		@apply mb-2;
+	}
+</style>
