@@ -22,16 +22,14 @@ const practice_papers_data = practice_papers;
 		{
 			practice_papers_data.map((entry) => {
 				return (
-  <Flip
-    subject={lang === "en" ? entry.subject_en : entry.subject_ta}
-    download_link_e={entry.download_link_e}
-    download_link_t={entry.download_link_t}
-  />
-);
-
+					<Flip
+						subject={lang === "en" ? entry.subject_en : entry.subject_ta}
+						download_link_e={entry.download_link_e}
+						download_link_t={entry.download_link_t}
+					/>
+				);
 			})
 		}
-		
 	</div>
 </section>
 <style>
